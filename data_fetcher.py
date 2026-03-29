@@ -8,71 +8,48 @@ from broker import data_client
 
 log = logging.getLogger(__name__)
 
+def get_delayed_end_time():
+    """Adjusts for the 15-minute free-tier data delay."""
+    return datetime.now(timezone.utc) - timedelta(minutes=16)
 
 def get_daily_bars(symbol: str, lookback_days: int = 250) -> Optional[pd.DataFrame]:
-    """
-    Fetches daily OHLCV bars for swing analysis.
-    Returns a clean DataFrame sorted by timestamp, or None on failure.
-    """
     try:
-        end   = datetime.now(timezone.utc)
-        start = end - timedelta(days=lookback_days + 10)  # buffer for weekends/holidays
-
+        end = get_delayed_end_time()
+        start = end - timedelta(days=lookback_days + 10)
         req = StockBarsRequest(
             symbol_or_symbols=symbol,
             timeframe=TimeFrame.Day,
             start=start,
             end=end,
-            limit=lookback_days,
-            feed="iex",
+            feed="iex"
         )
         bars = data_client.get_stock_bars(req)
-        df   = bars.df
-
-        if df.empty:
-            return None
-
-        # Flatten multi-index if present
+        df = bars.df
+        if df.empty: return None
         if isinstance(df.index, pd.MultiIndex):
             df = df.xs(symbol, level="symbol")
-
-        df = df.rename(columns=str.lower).sort_index()
-        return df
-
+        return df.rename(columns=str.lower).sort_index()
     except Exception as e:
         log.error(f"{symbol} daily bars failed: {e}")
         return None
 
-
 def get_intraday_bars(symbol: str, lookback_bars: int = 78) -> Optional[pd.DataFrame]:
-    """
-    Fetches 5-minute OHLCV bars for intraday analysis.
-    78 bars ≈ one full trading day at 5-min intervals.
-    """
     try:
-        end   = datetime.now(timezone.utc)
+        end = get_delayed_end_time()
         start = end - timedelta(hours=8)
-
         req = StockBarsRequest(
             symbol_or_symbols=symbol,
             timeframe=TimeFrame(5, TimeFrameUnit.Minute),
             start=start,
             end=end,
-            limit=lookback_bars,
-            feed="iex",
+            feed="iex"
         )
         bars = data_client.get_stock_bars(req)
-        df   = bars.df
-
-        if df.empty:
-            return None
-
+        df = bars.df
+        if df.empty: return None
         if isinstance(df.index, pd.MultiIndex):
             df = df.xs(symbol, level="symbol")
-
-        df = df.rename(columns=str.lower).sort_index()
-        return df
-
+        return df.rename(columns=str.lower).sort_index()
     except Exception as e:
-        log.error(f"{symbol} intraday bars failed: {e}")
+        log.error(f"{symbol} intraday failed: {e}")
         return None
