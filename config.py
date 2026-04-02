@@ -5,6 +5,10 @@ load_dotenv()
 
 API_KEY    = os.getenv("ALPACA_API_KEY")
 SECRET_KEY = os.getenv("ALPACA_SECRET_KEY")
+
+if not API_KEY or not SECRET_KEY:
+    raise ValueError("ALPACA_API_KEY and ALPACA_SECRET_KEY must be set in .env file")
+
 PAPER      = True 
 
 TOTAL_CAPITAL        = 50000.00

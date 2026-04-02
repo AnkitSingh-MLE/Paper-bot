@@ -12,7 +12,7 @@ def get_delayed_end_time():
     """Adjusts for the 15-minute free-tier data delay."""
     return datetime.now(timezone.utc) - timedelta(minutes=16)
 
-def get_daily_bars(symbol: str, lookback_days: int = 250) -> Optional[pd.DataFrame]:
+def get_daily_bars(symbol: str, lookback_days: int = 400) -> Optional[pd.DataFrame]:
     try:
         end = get_delayed_end_time()
         start = end - timedelta(days=lookback_days + 10)

@@ -1,0 +1,1 @@
+timestamp,date,symbol,strategy,timeframe,direction,entry,target,stop,qty,rrr,score,notes,pattern,pattern_pts,near_support,support_val,support10_val,support_pts,vol_surge,vol_ratio,vol_pts,ema_aligned,ema_20_val,ema_50_val,ema_200_val,ema_pts,rsi_fired,rsi_val,rsi_pts,macd_fired,macd_hist,macd_pts,adx_fired,adx_val,adx_pts,vwap_val,atr,result,pnl

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paper Bot Strategy Documentation</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 0 auto; padding: 20px; background: #f4f7f6; }
+        h1, h2, h3 { color: #2c3e50; border-bottom: 2px solid #eaeaea; padding-bottom: 10px; }
+        .strategy-card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 30px; }
+        .tag { display: inline-block; background: #3498db; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.85em; font-weight: bold; margin-bottom: 10px; }
+        .tag.intraday { background: #e67e22; }
+        .tag.swing { background: #9b59b6; }
+        ul { padding-left: 20px; }
+        li { margin-bottom: 8px; }
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+        th, td { text-align: left; padding: 12px; border-bottom: 1px solid #ddd; }
+        th { background: #f8f9fa; }
+        .highlight { font-weight: bold; color: #d35400; }
+        code { background: #eee; padding: 2px 4px; border-radius: 4px; font-family: monospace; }
+    </style>
+</head>
+<body>
+
+    <h1>Paper Bot Strategy Guide</h1>
+    <p>Technical documentation for the dual-strategy automated paper trading system.</p>
+
+    <div class="strategy-card">
+        <span class="tag intraday">INTRADAY (5-MIN BARS)</span>
+        <h2>1. Momentum & Mean Reversion</h2>
+        <p>Focuses on <strong>Opening Range Breakouts (ORB)</strong> and <strong>VWAP Reclaims</strong>.</p>
+        
+        <h3>Hard Filters (Mandatory)</h3>
+        <ul>
+            <li><strong>Time:</strong> Signal must fire between 10:00 AM and 2:00 PM ET.</li>
+            <li><strong>OR Quality:</strong> 30-min Opening Range must be 0.3% – 3% of the stock price.</li>
+            <li><strong>RSI:</strong> No entries if RSI > 80 (Long) or < 20 (Short).</li>
+        </ul>
+
+        <h3>Scoring System (Passing: 70 pts)</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Component</th>
+                    <th>Points</th>
+                    <th>Condition</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Signal Quality</td>
+                    <td>25 / 20</td>
+                    <td>ORB Breakout (25) or VWAP Reclaim (20).</td>
+                </tr>
+                <tr>
+                    <td>EMA Trend</td>
+                    <td>20</td>
+                    <td>EMA 9 > EMA 20 (Long) or EMA 9 < EMA 20 (Short).</td>
+                </tr>
+                <tr>
+                    <td>VWAP Alignment</td>
+                    <td>20</td>
+                    <td>Price must be on the correct side of VWAP.</td>
+                </tr>
+                <tr>
+                    <td>Volume Surge</td>
+                    <td>8 - 20</td>
+                    <td>Volume Ratio &ge; 1.2x (8), 1.5x (15), or 2.0x (20).</td>
+                </tr>
+                <tr>
+                    <td>RSI Momentum</td>
+                    <td>8 - 15</td>
+                    <td>Full points for RSI in 40–65 (Long) or 35–60 (Short).</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="strategy-card">
+        <span class="tag swing">SWING (DAILY BARS)</span>
+        <h2>2. Trend Regime Following</h2>
+        <p>Detects high-probability trend continuation patterns using daily bar closes.</p>
+
+        <h3>Regime Requirements</h3>
+        <ul>
+            <li><strong>Trend Direction:</strong> Price must be above EMA 200.</li>
+            <li><strong>Alignment:</strong> EMA 20 must be above EMA 50.</li>
+            <li><strong>Strength:</strong> ADX must be &ge; 20 (trending market).</li>
+            <li><strong>Momentum:</strong> MACD Line > Signal Line.</li>
+        </ul>
+
+        <h3>Scoring (Passing: 70 pts)</h3>
+        <ul>
+            <li><strong>Base Regime:</strong> 40 pts awarded if all Hard Filters pass.</li>
+            <li><strong>Volume Ratio:</strong> 20 pts if volume is &ge; 1.2x average.</li>
+            <li><strong>Candlestick Bonus:</strong> 
+                Bullish Engulfing (35), Morning Star (28), Hammer (22), Piercing (16).
+            </li>
+        </ul>
+    </div>
+
+    <div class="strategy-card">
+        <h2>3. Risk Management & Execution</h2>
+        <table>
+            <tr>
+                <th>Rule</th>
+                <th>Intraday Detail</th>
+                <th>Swing Detail</th>
+            </tr>
+            <tr>
+                <td><strong>Stop Loss</strong></td>
+                <td>1.5x ATR</td>
+                <td>2.5x ATR</td>
+            </tr>
+            <tr>
+                <td><strong>Target (RRR)</strong></td>
+                <td>2.0x Stop Dist</td>
+                <td>2.0x Stop Dist</td>
+            </tr>
+            <tr>
+                <td><strong>Max Time</strong></td>
+                <td>Force close 3:50 PM ET</td>
+                <td>Max 15 days</td>
+            </tr>
+        </table>
+        <p><strong>Capital Limits:</strong> $5,000 max position size, capped at 10 open positions simultaneously.</p>
+    </div>
+
+</body>
+</html>
