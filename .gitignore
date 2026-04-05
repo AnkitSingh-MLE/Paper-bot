@@ -1,6 +1,9 @@
-sec/
-*.pyc
-__pycache__/
 .env
-.DS_Store
+*.log
+sp500_cache.json
+__pycache__/
 venv/
+snap/
+*.csv
+!requirements.txt
+!.gitignore
