@@ -7,11 +7,9 @@ GCP micro-CPU friendly:
   • Intraday scan runs every SCAN_INTERVAL_SEC but only during market hours
   • Market-closed check throttled to one wake-up per minute
 """
-
 import datetime
 import time
 import logging
-
 from broker import is_market_open, force_close_intraday, close_stale_swing_trades
 import config
 from universe import get_liquid_universe
@@ -26,36 +24,38 @@ log = logging.getLogger("main")
 
 # Track whether the swing scan already ran today
 _swing_scan_done_date: datetime.date | None = None
-
-
-def _time_is(hour: int, minute: int) -> bool:
-    now = datetime.datetime.now()
-    return now.hour == hour and now.minute == minute
-
+# Track whether janitors already ran today
+_intraday_closed_date: datetime.date | None = None
+_stale_reaped_date: datetime.date | None = None
 
 def run():
-    global _swing_scan_done_date
+    global _swing_scan_done_date, _intraday_closed_date, _stale_reaped_date
     log.info("STARTING PAPER BOT: $25k Swing / $25k Day (GCP micro build)")
-
     symbols = get_liquid_universe()
     log.info(f"Universe loaded: {len(symbols)} symbols")
 
     while True:
         if not is_market_open():
             log.info("Market is closed. Sleeping 60s...")
-            time.sleep(60)        # Poll once per minute while closed — very cheap
+            time.sleep(60)
             continue
 
-        now  = datetime.datetime.now()
+        now   = datetime.datetime.now()
         today = now.date()
 
-        # ── JANITOR: stale swing positions at 3:31 PM ──
-        if _time_is(*config.STALE_REAPER_TIME):
+        # ── JANITOR: stale swing positions — runs once after 3:31 PM ──
+        stale_h, stale_m = config.STALE_REAPER_TIME
+        if (now.hour, now.minute) >= (stale_h, stale_m) and _stale_reaped_date != today:
+            log.info("REAPER: Checking for stale swing positions...")
             close_stale_swing_trades()
+            _stale_reaped_date = today
 
-        # ── JANITOR: force-close intraday at 3:50 PM ──
-        if _time_is(*config.EOD_CLOSE_TIME):
+        # ── JANITOR: force-close ALL intraday positions — runs once after 3:50 PM ──
+        eod_h, eod_m = config.EOD_CLOSE_TIME
+        if (now.hour, now.minute) >= (eod_h, eod_m) and _intraday_closed_date != today:
+            log.info("JANITOR: Force-closing all intraday positions at EOD...")
             force_close_intraday()
+            _intraday_closed_date = today
 
         # ── INTRADAY SCAN: every cycle while market is open ──
         log.info(f"Starting intraday scan for {len(symbols)} symbols...")
@@ -68,13 +68,11 @@ def run():
             _swing_scan_done_date = today
             log.info("Daily swing scan complete.")
 
-        # ── Refresh universe once a month (handled inside get_liquid_universe cache) ──
-        # Re-fetch only if the list somehow became empty
+        # Re-fetch universe if somehow empty
         if not symbols:
             symbols = get_liquid_universe()
 
         time.sleep(config.SCAN_INTERVAL_SEC)
-
 
 if __name__ == "__main__":
     run()
