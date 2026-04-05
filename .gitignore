@@ -4,6 +4,5 @@ sp500_cache.json
 __pycache__/
 venv/
 snap/
-*.csv
 !requirements.txt
 !.gitignore
