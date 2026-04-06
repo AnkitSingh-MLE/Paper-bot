@@ -36,7 +36,7 @@ def get_daily_bars(symbol: str, lookback_days: int = 400) -> Optional[pd.DataFra
 def get_intraday_bars(symbol: str, lookback_bars: int = 78) -> Optional[pd.DataFrame]:
     try:
         end = get_delayed_end_time()
-        start = end - timedelta(hours=8)
+        start = end - timedelta(days=3)
         req = StockBarsRequest(
             symbol_or_symbols=symbol,
             timeframe=TimeFrame(5, TimeFrameUnit.Minute),
