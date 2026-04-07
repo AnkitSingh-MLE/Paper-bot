@@ -12,6 +12,7 @@ import config
 from broker import get_open_positions, trading_client
 from logger import log_trade, get_daily_intraday_count
 from checklist import calculate_atr_levels
+from notify import alert_trade, alert_info
 
 log = logging.getLogger(__name__)
 
@@ -64,6 +65,7 @@ def execute_swing_trade(symbol: str, latest: dict) -> bool:
             stop_loss=StopLossRequest(stop_price=stop),
         ))
         log.info(f"SWING LONG [{symbol}]: qty={qty} entry=${entry:.2f} stop=${stop:.2f} target=${target:.2f} RRR={rrr:.2f} score={score}")
+        alert_trade(symbol, "long", "swing_long", entry, stop, target, qty, score, rrr)
         log_trade(symbol=symbol, strategy="swing_long", entry=entry,
                   target=target, stop=stop, qty=qty, rrr=rrr,
                   score=score, atr=atr, breakdown=latest)
@@ -100,6 +102,7 @@ def execute_intraday_trade(symbol: str, latest: dict, is_short: bool = False) ->
             stop_loss=StopLossRequest(stop_price=stop),
         ))
         log.info(f"INTRADAY {label} [{symbol}]: qty={qty} entry=${entry:.2f} stop=${stop:.2f} target=${target:.2f} RRR={rrr:.2f} score={score}")
+        alert_trade(symbol, direction, strategy, entry, stop, target, qty, score, rrr)
         log_trade(symbol=symbol, strategy=strategy, entry=entry,
                   target=target, stop=stop, qty=qty, rrr=rrr,
                   score=score, atr=atr, breakdown=latest)
