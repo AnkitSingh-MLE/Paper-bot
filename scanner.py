@@ -24,7 +24,7 @@ SYMBOL_TIMEOUT_SEC   = 8
 MAX_TRADES_PER_CYCLE = 3
 
 ET = pytz.timezone("America/New_York")
-INTRADAY_START = datetime.time(9, 30)
+INTRADAY_START = datetime.time(10, 0)  # Wait until 10 AM for 6 bars (ORB complete)
 INTRADAY_END   = datetime.time(14, 0)
 
 def _intraday_window_open() -> bool:

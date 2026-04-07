@@ -102,6 +102,7 @@ def execute_intraday_trade(symbol: str, latest: dict, is_short: bool = False) ->
             stop_loss=StopLossRequest(stop_price=stop),
         ))
         log.info(f"INTRADAY {label} [{symbol}]: qty={qty} entry=${entry:.2f} stop=${stop:.2f} target=${target:.2f} RRR={rrr:.2f} score={score}")
+        direction = "short" if is_short else "long"
         alert_trade(symbol, direction, strategy, entry, stop, target, qty, score, rrr)
         log_trade(symbol=symbol, strategy=strategy, entry=entry,
                   target=target, stop=stop, qty=qty, rrr=rrr,
