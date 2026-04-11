@@ -155,22 +155,28 @@ def scan_intraday(symbols: list, place_orders: bool = True) -> int:
     # ── Execute at 1 PM: top 5 by score, never repeat a symbol ──
     traded = 0
     if _is_execute_time() and place_orders:
+        # Get top 20 candidates by historical score
         candidates = [
             s for sym, s in _best_signals.items()
             if sym not in _executed_today
         ]
         candidates.sort(key=lambda x: x["score"], reverse=True)
-        top5 = candidates[:MAX_INTRADAY_TRADES]
+        top20_syms = [s["sym"] for s in candidates[:20]]
 
-        if top5:
-            log.info(f"INTRADAY EXECUTE: top {len(top5)} signals at 1 PM")
+        if top20_syms:
+            log.info(f"INTRADAY EXECUTE: rescanning top {len(top20_syms)} candidates for fresh scores at 1 PM")
+            fresh_signals = _run_parallel(_process_intraday_symbol, top20_syms)
+            fresh_signals.sort(key=lambda x: x["score"], reverse=True)
+            top5 = fresh_signals[:MAX_INTRADAY_TRADES]
+
             for sig in top5:
                 sym = sig["sym"]
+                log.info(f"EXECUTE: {sym} fresh score={sig['score']} direction={'SHORT' if sig['is_short'] else 'LONG'}")
                 if execution.execute_intraday_trade(sig["sym"], sig["latest"], is_short=sig["is_short"]):
                     traded += 1
                 _executed_today.add(sym)
         else:
-            log.info("INTRADAY EXECUTE: no new candidates at 1 PM")
+            log.info("INTRADAY EXECUTE: no candidates at 1 PM")
 
     directions = [(s["sym"], "S" if s["is_short"] else "L", s["score"]) for s in new_signals]
     log.info(f"INTRADAY SCAN done: {len(new_signals)} signal(s) {directions}, {traded} order(s)")
