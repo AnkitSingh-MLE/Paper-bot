@@ -17,6 +17,7 @@ import data_fetcher
 import indicators
 import checklist
 import execution
+import llm_overlay
 
 log = logging.getLogger(__name__)
 
@@ -87,12 +88,24 @@ def _process_intraday_symbol(sym: str) -> dict | None:
         if passed_long:
             latest["score"] = score_long
             latest.update(bd_long)
-            return {"sym": sym, "latest": latest, "score": score_long, "is_short": False}
+            latest["strategy"] = "intraday_long"
+            latest["is_short"] = False
+            verdict = llm_overlay.evaluate_signal(sym, latest)
+            latest["llm_approve"]    = verdict["approve"]
+            latest["llm_conviction"] = verdict["conviction"]
+            latest["llm_rationale"]  = verdict["rationale"]
+            return {"sym": sym, "latest": latest, "score": score_long, "is_short": False, "llm": verdict}
         passed_short, score_short, _, bd_short = checklist.score_intraday_short(latest)
         if passed_short:
             latest["score"] = score_short
             latest.update(bd_short)
-            return {"sym": sym, "latest": latest, "score": score_short, "is_short": True}
+            latest["strategy"] = "intraday_short"
+            latest["is_short"] = True
+            verdict = llm_overlay.evaluate_signal(sym, latest)
+            latest["llm_approve"]    = verdict["approve"]
+            latest["llm_conviction"] = verdict["conviction"]
+            latest["llm_rationale"]  = verdict["rationale"]
+            return {"sym": sym, "latest": latest, "score": score_short, "is_short": True, "llm": verdict}
         return None
     except Exception as e:
         log.warning(f"[{sym}] intraday error: {e}")

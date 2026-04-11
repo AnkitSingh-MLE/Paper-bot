@@ -10,6 +10,9 @@ GCP micro-CPU friendly:
 import datetime
 import time
 import logging
+import os
+from dotenv import load_dotenv
+load_dotenv(os.path.join(os.path.dirname(__file__), '.env'))
 from broker import is_market_open, force_close_intraday, close_stale_swing_trades
 from notify import alert_info, alert_error
 import config
