@@ -19,6 +19,7 @@ from alpaca.trading.enums import QueryOrderStatus, OrderSide
 
 import config
 from broker import trading_client
+from notify import alert_reconcile, alert_info
 
 logging.basicConfig(
     level=logging.INFO,
@@ -164,6 +165,9 @@ def _print_summary(df: pd.DataFrame):
         log.info(f"  Avg loss: {losses['pnl'].mean():.2f}%")
     log.info(f"  Still open: {len(df[df['result'] == 'open'])}")
     log.info("─────────────────────────────────────────────────")
+    avg_win_val = wins["pnl"].mean() if not wins.empty else 0
+    avg_loss_val = losses["pnl"].mean() if not losses.empty else 0
+    alert_reconcile(len(wins), len(losses), win_rate, avg_win_val, avg_loss_val, total)
 
 
 if __name__ == "__main__":
