@@ -11,6 +11,7 @@ import datetime
 import time
 import logging
 from broker import is_market_open, force_close_intraday, close_stale_swing_trades
+from notify import alert_info, alert_error
 import config
 from universe import get_liquid_universe
 from scanner import scan_swing, scan_intraday
@@ -31,6 +32,7 @@ _stale_reaped_date: datetime.date | None = None
 def run():
     global _swing_scan_done_date, _intraday_closed_date, _stale_reaped_date
     log.info("STARTING PAPER BOT: $25k Swing / $25k Day (GCP micro build)")
+    alert_info("🟢 PaperBot started — scanning 503 symbols")
     symbols = get_liquid_universe()
     log.info(f"Universe loaded: {len(symbols)} symbols")
 
@@ -55,6 +57,7 @@ def run():
         if (now.hour, now.minute) >= (eod_h, eod_m) and _intraday_closed_date != today:
             log.info("JANITOR: Force-closing all intraday positions at EOD...")
             force_close_intraday()
+            alert_info("🧹 EOD Janitor ran — all intraday positions closed")
             _intraday_closed_date = today
 
         # ── INTRADAY SCAN: every cycle while market is open ──
@@ -75,4 +78,8 @@ def run():
         time.sleep(config.SCAN_INTERVAL_SEC)
 
 if __name__ == "__main__":
-    run()
+    try:
+        run()
+    except Exception as e:
+        alert_error(f"PaperBot CRASHED: {e}")
+        raise
