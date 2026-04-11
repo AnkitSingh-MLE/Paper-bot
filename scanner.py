@@ -1,9 +1,10 @@
 """
 scanner.py
 ──────────
-Swing:    Daily bars, runs once after 3:30 PM
-Intraday: 5-min bars, runs every cycle 9:30 AM-2:00 PM ET
-          ORB + VWAP reclaim, long and short, 5 trades/day cap
+Swing:    Daily bars, runs once after 3:30 PM — top 3 by score
+Intraday: 5-min bars, accumulates signals 9:30 AM-1:00 PM ET
+          At 1:00 PM executes TOP 5 by score only (patience filter)
+          ORB + VWAP reclaim, long and short
 """
 
 import logging
@@ -19,17 +20,41 @@ import execution
 
 log = logging.getLogger(__name__)
 
-MAX_WORKERS          = 4
-SYMBOL_TIMEOUT_SEC   = 8
-MAX_TRADES_PER_CYCLE = 3
+MAX_WORKERS           = 4
+SYMBOL_TIMEOUT_SEC    = 8
+MAX_TRADES_PER_CYCLE  = 3   # swing cap
+MAX_INTRADAY_TRADES   = 5   # intraday daily cap
 
 ET = pytz.timezone("America/New_York")
-INTRADAY_START = datetime.time(10, 0)  # Wait until 10 AM for 6 bars (ORB complete)
-INTRADAY_END   = datetime.time(14, 0)
+INTRADAY_SCAN_START  = datetime.time(9, 30)   # start scanning at open
+INTRADAY_SCAN_END    = datetime.time(13, 0)   # stop scanning at 1 PM
+INTRADAY_EXECUTE_AT  = datetime.time(13, 0)   # execute best signals at 1 PM
+
+# Accumulator: best signals seen across all scan cycles today
+_best_signals: dict[str, dict] = {}   # sym -> best signal dict
+_executed_today: set            = set()
+_last_execute_date              = None
+
 
 def _intraday_window_open() -> bool:
     now_et = datetime.datetime.now(ET).time()
-    return INTRADAY_START <= now_et <= INTRADAY_END
+    return INTRADAY_SCAN_START <= now_et <= INTRADAY_SCAN_END
+
+
+def _is_execute_time() -> bool:
+    now_et = datetime.datetime.now(ET)
+    return now_et.time() >= INTRADAY_EXECUTE_AT
+
+
+def _reset_if_new_day():
+    global _best_signals, _executed_today, _last_execute_date
+    today = datetime.datetime.now(ET).date()
+    if _last_execute_date != today:
+        _best_signals      = {}
+        _executed_today    = set()
+        _last_execute_date = today
+        log.info("INTRADAY: New day — signal accumulator reset")
+
 
 def _process_swing_symbol(sym: str) -> dict | None:
     try:
@@ -47,6 +72,7 @@ def _process_swing_symbol(sym: str) -> dict | None:
     except Exception as e:
         log.warning(f"[{sym}] swing error: {e}")
         return None
+
 
 def _process_intraday_symbol(sym: str) -> dict | None:
     try:
@@ -72,6 +98,7 @@ def _process_intraday_symbol(sym: str) -> dict | None:
         log.warning(f"[{sym}] intraday error: {e}")
         return None
 
+
 def _run_parallel(worker_fn, symbols: list) -> list[dict]:
     signals = []
     total_timeout = SYMBOL_TIMEOUT_SEC * max(len(symbols), 1)
@@ -88,6 +115,7 @@ def _run_parallel(worker_fn, symbols: list) -> list[dict]:
                 log.warning(f"[{sym}] error: {e}")
     return signals
 
+
 def scan_swing(symbols: list, place_orders: bool = True) -> int:
     log.info(f"SWING SCAN: {len(symbols)} symbols")
     signals = _run_parallel(_process_swing_symbol, symbols)
@@ -103,21 +131,53 @@ def scan_swing(symbols: list, place_orders: bool = True) -> int:
     log.info(f"SWING SCAN done: {len(signals)} signal(s), {traded} order(s)")
     return traded
 
+
 def scan_intraday(symbols: list, place_orders: bool = True) -> int:
+    global _best_signals, _executed_today
+
+    _reset_if_new_day()
+
     if not _intraday_window_open():
-        log.debug("Intraday window closed, skipping scan")
+        log.debug("Intraday scan window closed")
         return 0
+
+    # ── Accumulate best signals across cycles ──
     log.info(f"INTRADAY SCAN: {len(symbols)} symbols")
-    signals = _run_parallel(_process_intraday_symbol, symbols)
-    signals.sort(key=lambda x: x["score"], reverse=True)
+    new_signals = _run_parallel(_process_intraday_symbol, symbols)
+
+    for sig in new_signals:
+        sym = sig["sym"]
+        if sym not in _best_signals or sig["score"] > _best_signals[sym]["score"]:
+            _best_signals[sym] = sig
+
+    log.info(f"INTRADAY: {len(new_signals)} signals this cycle | {len(_best_signals)} unique accumulated today")
+
+    # ── Execute at 1 PM: top 5 by score, never repeat a symbol ──
     traded = 0
-    for sig in signals:
-        if traded >= MAX_TRADES_PER_CYCLE:
-            log.info(f"INTRADAY: cycle cap hit ({MAX_TRADES_PER_CYCLE})")
-            break
-        if place_orders:
-            if execution.execute_intraday_trade(sig["sym"], sig["latest"], is_short=sig["is_short"]):
-                traded += 1
-    directions = [(s["sym"], "S" if s["is_short"] else "L", s["score"]) for s in signals]
-    log.info(f"INTRADAY SCAN done: {len(signals)} signal(s) {directions}, {traded} order(s)")
+    if _is_execute_time() and place_orders:
+        # Get top 20 candidates by historical score
+        candidates = [
+            s for sym, s in _best_signals.items()
+            if sym not in _executed_today
+        ]
+        candidates.sort(key=lambda x: x["score"], reverse=True)
+        top20_syms = [s["sym"] for s in candidates[:20]]
+
+        if top20_syms:
+            log.info(f"INTRADAY EXECUTE: rescanning top {len(top20_syms)} candidates for fresh scores at 1 PM")
+            fresh_signals = _run_parallel(_process_intraday_symbol, top20_syms)
+            fresh_signals.sort(key=lambda x: x["score"], reverse=True)
+            top5 = fresh_signals[:MAX_INTRADAY_TRADES]
+
+            for sig in top5:
+                sym = sig["sym"]
+                log.info(f"EXECUTE: {sym} fresh score={sig['score']} direction={'SHORT' if sig['is_short'] else 'LONG'}")
+                if execution.execute_intraday_trade(sig["sym"], sig["latest"], is_short=sig["is_short"]):
+                    traded += 1
+                _executed_today.add(sym)
+        else:
+            log.info("INTRADAY EXECUTE: no candidates at 1 PM")
+
+    directions = [(s["sym"], "S" if s["is_short"] else "L", s["score"]) for s in new_signals]
+    log.info(f"INTRADAY SCAN done: {len(new_signals)} signal(s) {directions}, {traded} order(s)")
     return traded
