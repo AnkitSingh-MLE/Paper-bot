@@ -22,12 +22,54 @@ def get_open_positions():
     return trading_client.get_all_positions()
 
 def force_close_intraday():
-    """Janitor: Force-closes ALL positions and cancels all orders at EOD."""
+    """Janitor: Closes ONLY intraday positions at 3:50 PM. Protects swing trades."""
     try:
-        trading_client.close_all_positions(cancel_orders=True)
-        log.info("JANITOR: All positions closed and orders cancelled.")
+        # Get open swing symbols from trades.csv
+        csv_path = os.path.join(BASE_DIR, "trades.csv")
+        swing_symbols = set()
+        if os.path.exists(csv_path):
+            df = pd.read_csv(csv_path)
+            swing_open = df[(df["result"] == "open") & (df["timeframe"] == "swing")]
+            swing_symbols = set(swing_open["symbol"].tolist())
+            if swing_symbols:
+                log.info(f"JANITOR: Protecting swing positions: {swing_symbols}")
+
+        # Close only non-swing positions
+        positions = trading_client.get_all_positions()
+        closed, skipped = [], []
+        for p in positions:
+            if p.symbol in swing_symbols:
+                skipped.append(p.symbol)
+            else:
+                try:
+                    trading_client.close_position(p.symbol)
+                    closed.append(p.symbol)
+                except Exception as e:
+                    log.error(f"JANITOR: Failed to close {p.symbol}: {e}")
+
+        # Cancel open orders for non-swing symbols only
+        try:
+            from alpaca.trading.requests import GetOrdersRequest
+            from alpaca.trading.enums import QueryOrderStatus
+            open_orders = trading_client.get_orders(GetOrdersRequest(status=QueryOrderStatus.OPEN))
+            for o in open_orders:
+                if o.symbol not in swing_symbols:
+                    try:
+                        trading_client.cancel_order_by_id(o.id)
+                    except Exception:
+                        pass
+        except Exception as e:
+            log.warning(f"JANITOR: Order cancel failed: {e}")
+
+        log.info(f"JANITOR: Closed intraday: {closed} | Protected swing: {skipped}")
+
     except Exception as e:
         log.error(f"Janitor failed: {e}")
+        try:
+            trading_client.close_all_positions(cancel_orders=True)
+            log.warning("JANITOR: Fallback — closed all positions")
+        except Exception as e2:
+            log.error(f"Janitor fallback failed: {e2}")
 
 def close_stale_swing_trades():
     """Reaper: Closes swing trades older than SWING_MAX_HOLD_DAYS."""
