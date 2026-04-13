@@ -90,22 +90,14 @@ def _process_intraday_symbol(sym: str) -> dict | None:
             latest.update(bd_long)
             latest["strategy"] = "intraday_long"
             latest["is_short"] = False
-            verdict = llm_overlay.evaluate_signal(sym, latest)
-            latest["llm_approve"]    = verdict["approve"]
-            latest["llm_conviction"] = verdict["conviction"]
-            latest["llm_rationale"]  = verdict["rationale"]
-            return {"sym": sym, "latest": latest, "score": score_long, "is_short": False, "llm": verdict}
+            return {"sym": sym, "latest": latest, "score": score_long, "is_short": False}
         passed_short, score_short, _, bd_short = checklist.score_intraday_short(latest)
         if passed_short:
             latest["score"] = score_short
             latest.update(bd_short)
             latest["strategy"] = "intraday_short"
             latest["is_short"] = True
-            verdict = llm_overlay.evaluate_signal(sym, latest)
-            latest["llm_approve"]    = verdict["approve"]
-            latest["llm_conviction"] = verdict["conviction"]
-            latest["llm_rationale"]  = verdict["rationale"]
-            return {"sym": sym, "latest": latest, "score": score_short, "is_short": True, "llm": verdict}
+            return {"sym": sym, "latest": latest, "score": score_short, "is_short": True}
         return None
     except Exception as e:
         log.warning(f"[{sym}] intraday error: {e}")
@@ -184,7 +176,15 @@ def scan_intraday(symbols: list, place_orders: bool = True) -> int:
 
             for sig in top5:
                 sym = sig["sym"]
-                log.info(f"EXECUTE: {sym} fresh score={sig['score']} direction={'SHORT' if sig['is_short'] else 'LONG'}")
+                # LLM evaluation only on final top 5 — targeted, not bulk
+                try:
+                    verdict = llm_overlay.evaluate_signal(sym, sig["latest"])
+                    sig["latest"]["llm_approve"]    = verdict["approve"]
+                    sig["latest"]["llm_conviction"] = verdict["conviction"]
+                    sig["latest"]["llm_rationale"]  = verdict["rationale"]
+                    log.info(f"EXECUTE: {sym} score={sig['score']} llm={'APPROVE' if verdict['approve'] else 'SKIP'} conviction={verdict['conviction']:.2f} | {verdict['rationale']}")
+                except Exception as e:
+                    log.warning(f"LLM eval failed for {sym}: {e}")
                 if execution.execute_intraday_trade(sig["sym"], sig["latest"], is_short=sig["is_short"]):
                     traded += 1
                 _executed_today.add(sym)
