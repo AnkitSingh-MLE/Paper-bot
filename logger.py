@@ -149,6 +149,54 @@ def get_daily_intraday_count() -> int:
     return count
 
 
+def log_llm_evaluation(
+    symbol: str, score: int, is_short: bool,
+    llm_approve: bool, llm_conviction: float, llm_rationale: str,
+    rank: int = 0, executed: bool = False
+):
+    """
+    Log LLM evaluations for intraday candidates at 1 PM.
+    Creates llm_evaluations.csv for tracking LLM opinions for future training.
+    
+    Args:
+        symbol: Stock ticker
+        score: Technical score (0-100)
+        is_short: True if short, False if long
+        llm_approve: Whether LLM approved the trade
+        llm_conviction: LLM confidence level (0.0-1.0)
+        llm_rationale: LLM explanation
+        rank: Rank among top 20 candidates (1-20)
+        executed: Whether this signal resulted in an executed trade
+    """
+    llm_file = "llm_evaluations.csv"
+    llm_fieldnames = [
+        "timestamp", "date", "symbol", "direction",
+        "score", "llm_approve", "llm_conviction",
+        "llm_rationale", "rank", "executed"
+    ]
+    
+    file_exists = os.path.isfile(llm_file)
+    try:
+        with open(llm_file, mode="a", newline="", encoding="utf-8") as f:
+            writer = csv.DictWriter(f, fieldnames=llm_fieldnames)
+            if not file_exists:
+                writer.writeheader()
+            writer.writerow({
+                "timestamp":        datetime.now().isoformat(timespec="seconds"),
+                "date":            date.today().isoformat(),
+                "symbol":          symbol,
+                "direction":       "short" if is_short else "long",
+                "score":           score,
+                "llm_approve":     "yes" if llm_approve else "no",
+                "llm_conviction":  round(llm_conviction, 3),
+                "llm_rationale":   llm_rationale[:200],  # Truncate to 200 chars
+                "rank":            rank,
+                "executed":        "yes" if executed else "no",
+            })
+    except Exception as e:
+        log.error(f"LLM evaluation log write failed: {e}")
+
+
 def get_swing_entry_dates() -> dict:
     from datetime import date as date_type
     entries = {}

@@ -142,22 +142,23 @@ def scan_intraday(symbols: list, place_orders: bool = True) -> int:
 
     _reset_if_new_day()
 
-    if not _intraday_window_open():
-        log.debug("Intraday scan window closed")
-        return 0
+    # ── Accumulate best signals across cycles (only during window) ──
+    new_signals = []
+    if _intraday_window_open():
+        log.info(f"INTRADAY SCAN: {len(symbols)} symbols")
+        new_signals = _run_parallel(_process_intraday_symbol, symbols)
 
-    # ── Accumulate best signals across cycles ──
-    log.info(f"INTRADAY SCAN: {len(symbols)} symbols")
-    new_signals = _run_parallel(_process_intraday_symbol, symbols)
+        for sig in new_signals:
+            sym = sig["sym"]
+            if sym not in _best_signals or sig["score"] > _best_signals[sym]["score"]:
+                _best_signals[sym] = sig
 
-    for sig in new_signals:
-        sym = sig["sym"]
-        if sym not in _best_signals or sig["score"] > _best_signals[sym]["score"]:
-            _best_signals[sym] = sig
-
-    log.info(f"INTRADAY: {len(new_signals)} signals this cycle | {len(_best_signals)} unique accumulated today")
+        log.info(f"INTRADAY: {len(new_signals)} signals this cycle | {len(_best_signals)} unique accumulated today")
+    else:
+        log.debug("Intraday scan window closed - skipping scan")
 
     # ── Execute at 1 PM: top 5 by score, never repeat a symbol ──
+    # IMPORTANT: Execution is independent of window, so it can run at 1 PM when window closes
     traded = 0
     if _is_execute_time() and place_orders:
         # Get top 20 candidates by historical score
@@ -172,21 +173,52 @@ def scan_intraday(symbols: list, place_orders: bool = True) -> int:
             log.info(f"INTRADAY EXECUTE: rescanning top {len(top20_syms)} candidates for fresh scores at 1 PM")
             fresh_signals = _run_parallel(_process_intraday_symbol, top20_syms)
             fresh_signals.sort(key=lambda x: x["score"], reverse=True)
-            top5 = fresh_signals[:MAX_INTRADAY_TRADES]
 
-            for sig in top5:
+            # ── LLM EVALUATION: all top 20 candidates (for training dataset) ──
+            log.info(f"INTRADAY: LLM evaluating all {len(fresh_signals)} rescanned candidates...")
+            for rank, sig in enumerate(fresh_signals[:20], start=1):
                 sym = sig["sym"]
-                # LLM evaluation only on final top 5 — targeted, not bulk
                 try:
                     verdict = llm_overlay.evaluate_signal(sym, sig["latest"])
                     sig["latest"]["llm_approve"]    = verdict["approve"]
                     sig["latest"]["llm_conviction"] = verdict["conviction"]
                     sig["latest"]["llm_rationale"]  = verdict["rationale"]
-                    log.info(f"EXECUTE: {sym} score={sig['score']} llm={'APPROVE' if verdict['approve'] else 'SKIP'} conviction={verdict['conviction']:.2f} | {verdict['rationale']}")
+                    
+                    # Record ALL evaluations for training
+                    from logger import log_llm_evaluation
+                    log_llm_evaluation(
+                        symbol=sym,
+                        score=sig["score"],
+                        is_short=sig["is_short"],
+                        llm_approve=verdict["approve"],
+                        llm_conviction=verdict["conviction"],
+                        llm_rationale=verdict["rationale"],
+                        rank=rank,
+                        executed=False  # Will update to True if executed below
+                    )
+                    log.debug(f"CANDIDATE #{rank} {sym}: score={sig['score']} llm={'APPROVE' if verdict['approve'] else 'REJECT'} conviction={verdict['conviction']:.2f}")
                 except Exception as e:
                     log.warning(f"LLM eval failed for {sym}: {e}")
+
+            # ── EXECUTE: top 5 approved by LLM ──
+            top5 = fresh_signals[:MAX_INTRADAY_TRADES]
+            for sig in top5:
+                sym = sig["sym"]
                 if execution.execute_intraday_trade(sig["sym"], sig["latest"], is_short=sig["is_short"]):
                     traded += 1
+                    # Mark this evaluation as executed in training log
+                    from logger import log_llm_evaluation
+                    log_llm_evaluation(
+                        symbol=sym,
+                        score=sig["score"],
+                        is_short=sig["is_short"],
+                        llm_approve=sig["latest"].get("llm_approve", False),
+                        llm_conviction=sig["latest"].get("llm_conviction", 0.0),
+                        llm_rationale=sig["latest"].get("llm_rationale", ""),
+                        rank=next((i+1 for i, s in enumerate(fresh_signals) if s["sym"] == sym), 0),
+                        executed=True
+                    )
+                    log.info(f"EXECUTE: {sym} score={sig['score']} llm_conviction={sig['latest'].get('llm_conviction', 0):.2f} | {sig['latest'].get('llm_rationale', '')}")
                 _executed_today.add(sym)
         else:
             log.info("INTRADAY EXECUTE: no candidates at 1 PM")
