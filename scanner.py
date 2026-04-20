@@ -12,6 +12,8 @@ import time
 import concurrent.futures
 import datetime
 import pytz
+import pandas as pd
+import os
 
 import data_fetcher
 import indicators
@@ -23,16 +25,15 @@ log = logging.getLogger(__name__)
 
 MAX_WORKERS           = 4
 SYMBOL_TIMEOUT_SEC    = 8
-MAX_TRADES_PER_CYCLE  = 3   # swing cap
-MAX_INTRADAY_TRADES   = 5   # intraday daily cap
+MAX_TRADES_PER_CYCLE  = 3
+MAX_INTRADAY_TRADES   = 5
 
 ET = pytz.timezone("America/New_York")
-INTRADAY_SCAN_START  = datetime.time(9, 30)   # start scanning at open
-INTRADAY_SCAN_END    = datetime.time(13, 0)   # stop scanning at 1 PM
-INTRADAY_EXECUTE_AT  = datetime.time(13, 0)   # execute best signals at 1 PM
+INTRADAY_SCAN_START  = datetime.time(9, 30)
+INTRADAY_SCAN_END    = datetime.time(13, 0)
+INTRADAY_EXECUTE_AT  = datetime.time(13, 0)
 
-# Accumulator: best signals seen across all scan cycles today
-_best_signals: dict[str, dict] = {}   # sym -> best signal dict
+_best_signals: dict[str, dict] = {}
 _executed_today: set            = set()
 _last_execute_date              = None
 
@@ -52,8 +53,23 @@ def _reset_if_new_day():
     today = datetime.datetime.now(ET).date()
     if _last_execute_date != today:
         _best_signals      = {}
-        _executed_today    = set()
         _last_execute_date = today
+        # Reload today's executed symbols from CSV to survive restarts
+        try:
+            trades_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "trades.csv")
+            if os.path.exists(trades_path):
+                df = pd.read_csv(trades_path)
+                today_str = today.isoformat()
+                _executed_today = set(
+                    df[(df["date"] == today_str) & (df["timeframe"] == "intraday")]["symbol"].tolist()
+                )
+                if _executed_today:
+                    log.info(f"INTRADAY: Restored executed symbols from CSV: {_executed_today}")
+            else:
+                _executed_today = set()
+        except Exception as e:
+            log.warning(f"Could not restore executed symbols from CSV: {e}")
+            _executed_today = set()
         log.info("INTRADAY: New day — signal accumulator reset")
 
 
@@ -125,14 +141,53 @@ def scan_swing(symbols: list, place_orders: bool = True) -> int:
     log.info(f"SWING SCAN: {len(symbols)} symbols")
     signals = _run_parallel(_process_swing_symbol, symbols)
     signals.sort(key=lambda x: x["score"], reverse=True)
+
+    # ── LLM EVALUATION: all swing candidates ──
+    if signals:
+        log.info(f"SWING: LLM evaluating {len(signals)} candidate(s)...")
+        for rank, sig in enumerate(signals, start=1):
+            sym = sig["sym"]
+            try:
+                verdict = llm_overlay.evaluate_signal(sym, sig["latest"])
+                sig["latest"]["llm_approve"]    = verdict["approve"]
+                sig["latest"]["llm_conviction"] = verdict["conviction"]
+                sig["latest"]["llm_rationale"]  = verdict["rationale"]
+                from logger import log_llm_evaluation
+                log_llm_evaluation(
+                    symbol=sym,
+                    score=sig["score"],
+                    is_short=False,
+                    llm_approve=verdict["approve"],
+                    llm_conviction=verdict["conviction"],
+                    llm_rationale=verdict["rationale"],
+                    rank=rank,
+                    executed=False
+                )
+                log.info(f"SWING LLM #{rank} {sym}: score={sig['score']} llm={'APPROVE' if verdict['approve'] else 'REJECT'} conviction={verdict['conviction']:.2f} | {verdict['rationale']}")
+            except Exception as e:
+                log.warning(f"SWING LLM eval failed for {sym}: {e}")
+
     traded = 0
     for sig in signals:
         if traded >= MAX_TRADES_PER_CYCLE:
             log.info(f"SWING: cycle cap hit ({MAX_TRADES_PER_CYCLE})")
             break
         if place_orders:
-            if execution.execute_swing_trade(sig["sym"], sig["latest"]):
+            sym = sig["sym"]
+            if execution.execute_swing_trade(sym, sig["latest"]):
                 traded += 1
+                from logger import log_llm_evaluation
+                log_llm_evaluation(
+                    symbol=sym,
+                    score=sig["score"],
+                    is_short=False,
+                    llm_approve=sig["latest"].get("llm_approve", False),
+                    llm_conviction=sig["latest"].get("llm_conviction", 0.0),
+                    llm_rationale=sig["latest"].get("llm_rationale", ""),
+                    rank=next((i+1 for i, s in enumerate(signals) if s["sym"] == sym), 0),
+                    executed=True
+                )
+
     log.info(f"SWING SCAN done: {len(signals)} signal(s), {traded} order(s)")
     return traded
 
@@ -142,7 +197,6 @@ def scan_intraday(symbols: list, place_orders: bool = True) -> int:
 
     _reset_if_new_day()
 
-    # ── Accumulate best signals across cycles (only during window) ──
     new_signals = []
     if _intraday_window_open():
         log.info(f"INTRADAY SCAN: {len(symbols)} symbols")
@@ -157,11 +211,8 @@ def scan_intraday(symbols: list, place_orders: bool = True) -> int:
     else:
         log.debug("Intraday scan window closed - skipping scan")
 
-    # ── Execute at 1 PM: top 5 by score, never repeat a symbol ──
-    # IMPORTANT: Execution is independent of window, so it can run at 1 PM when window closes
     traded = 0
     if _is_execute_time() and place_orders:
-        # Get top 20 candidates by historical score
         candidates = [
             s for sym, s in _best_signals.items()
             if sym not in _executed_today
@@ -174,7 +225,6 @@ def scan_intraday(symbols: list, place_orders: bool = True) -> int:
             fresh_signals = _run_parallel(_process_intraday_symbol, top20_syms)
             fresh_signals.sort(key=lambda x: x["score"], reverse=True)
 
-            # ── LLM EVALUATION: all top 20 candidates (for training dataset) ──
             log.info(f"INTRADAY: LLM evaluating all {len(fresh_signals)} rescanned candidates...")
             for rank, sig in enumerate(fresh_signals[:20], start=1):
                 sym = sig["sym"]
@@ -183,8 +233,6 @@ def scan_intraday(symbols: list, place_orders: bool = True) -> int:
                     sig["latest"]["llm_approve"]    = verdict["approve"]
                     sig["latest"]["llm_conviction"] = verdict["conviction"]
                     sig["latest"]["llm_rationale"]  = verdict["rationale"]
-                    
-                    # Record ALL evaluations for training
                     from logger import log_llm_evaluation
                     log_llm_evaluation(
                         symbol=sym,
@@ -194,19 +242,17 @@ def scan_intraday(symbols: list, place_orders: bool = True) -> int:
                         llm_conviction=verdict["conviction"],
                         llm_rationale=verdict["rationale"],
                         rank=rank,
-                        executed=False  # Will update to True if executed below
+                        executed=False
                     )
                     log.debug(f"CANDIDATE #{rank} {sym}: score={sig['score']} llm={'APPROVE' if verdict['approve'] else 'REJECT'} conviction={verdict['conviction']:.2f}")
                 except Exception as e:
                     log.warning(f"LLM eval failed for {sym}: {e}")
 
-            # ── EXECUTE: top 5 approved by LLM ──
             top5 = fresh_signals[:MAX_INTRADAY_TRADES]
             for sig in top5:
                 sym = sig["sym"]
                 if execution.execute_intraday_trade(sig["sym"], sig["latest"], is_short=sig["is_short"]):
                     traded += 1
-                    # Mark this evaluation as executed in training log
                     from logger import log_llm_evaluation
                     log_llm_evaluation(
                         symbol=sym,
