@@ -20,41 +20,8 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 CSV_PATH = os.path.join(BASE_DIR, "trades.csv")
 
 ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")
-MODEL             = "claude-sonnet-4-20250514"
+MODEL             = "claude-sonnet-4-6"
 MAX_TOKENS        = 200
-
-
-def _get_recent_outcomes(symbol: str, n: int = 5) -> str:
-    try:
-        df        = pd.read_csv(CSV_PATH)
-        sym_trades = df[
-            (df["symbol"] == symbol) &
-            (df["result"].isin(["win", "loss"]))
-        ].tail(n)
-        if sym_trades.empty:
-            return "no history"
-        return ", ".join(
-            f"{r['result']}({r['pnl']:.1f}%)"
-            for _, r in sym_trades.iterrows()
-        )
-    except Exception:
-        return "no history"
-
-
-def _get_strategy_outcomes(strategy: str, n: int = 10) -> str:
-    try:
-        df          = pd.read_csv(CSV_PATH)
-        strat_trades = df[
-            (df["strategy"] == strategy) &
-            (df["result"].isin(["win", "loss"]))
-        ].tail(n)
-        if strat_trades.empty:
-            return "no history"
-        wins  = len(strat_trades[strat_trades["result"] == "win"])
-        total = len(strat_trades)
-        return f"{wins}/{total} wins ({wins/total*100:.0f}% win rate)"
-    except Exception:
-        return "no history"
 
 
 def build_prompt(sym: str, signal: dict, context: dict) -> str:
@@ -75,15 +42,12 @@ def build_prompt(sym: str, signal: dict, context: dict) -> str:
 
     price_vs_vwap = "above" if entry > vwap else "below"
     ema_trend     = "aligned bullish" if ema_20 > ema_50 else "aligned bearish"
-    sym_history   = _get_recent_outcomes(sym)
-    strat_history = _get_strategy_outcomes(strategy)
 
-    # Market context
     news    = context.get("news", "unavailable")
     insider = context.get("insider", "unavailable")
 
     return f"""You are a disciplined professional intraday trader reviewing a trade signal.
-Evaluate objectively. Consider ALL sections — technicals, history, AND market context.
+Evaluate based on technicals and market context only.
 
 SIGNAL:
 Symbol: {sym} | Direction: {direction} | Strategy: {strategy}
@@ -95,10 +59,6 @@ Price vs VWAP: {price_vs_vwap} (VWAP=${vwap:.2f})
 EMA trend: {ema_trend} (EMA20=${ema_20:.2f}, EMA50=${ema_50:.2f})
 ADX: {adx:.1f} | MACD histogram: {macd_hist:.4f}
 Signal notes: {notes}
-
-TRADE HISTORY:
-{sym} last 5 trades: {sym_history}
-{strategy} last 10 trades: {strat_history}
 
 MARKET CONTEXT:
 Recent news for {sym}:
@@ -119,7 +79,6 @@ def evaluate_signal(sym: str, signal: dict) -> dict:
         return neutral
 
     try:
-        # Get market context
         from market_context import get_market_context
         context = get_market_context(sym)
     except Exception as e:
@@ -185,7 +144,6 @@ def write_llm_verdict_to_csv(sym: str, timestamp: str, verdict: dict):
         log.error(f"Failed to write LLM verdict to CSV: {e}")
 
 
-# ── Quick test ───────────────────────────────────────────────
 if __name__ == "__main__":
     import sys
     from dotenv import load_dotenv
