@@ -1,0 +1,544 @@
+timestamp,date,symbol,direction,score,llm_approve,llm_conviction,llm_rationale,rank,executed
+2026-04-21T13:02:06,2026-04-21,AZO,long,100,no,0.2,Missing key technical indicators and poor strategy win rate override positive signals.,1,no
+2026-04-21T13:02:09,2026-04-21,ATO,short,88,no,0.2,Poor strategy win rate and missing key technical indicators outweigh signal components.,2,no
+2026-04-21T13:02:14,2026-04-21,ALL,long,81,no,0.2,Poor strategy win rate and missing key technical indicators outweigh positive signals.,3,no
+2026-04-21T13:02:18,2026-04-21,ARE,short,80,no,0.2,Poor strategy win rate and missing key technical indicators make this risky.,4,no
+2026-04-21T13:02:21,2026-04-21,AIG,short,80,no,0.2,Poor strategy win rate and incomplete technical data make this unreliable signal,5,no
+2026-04-21T13:02:24,2026-04-21,AEE,short,75,no,0.2,Poor strategy win rate and missing key technical indicators raise significant concerns.,6,no
+2026-04-21T13:02:26,2026-04-21,GOOG,short,73,no,0.2,"Poor strategy win rate, missing key indicators, weak volume contradicts breakdown signal.",7,no
+2026-04-21T13:02:30,2026-04-21,ADM,long,73,no,0.2,"Poor strategy win rate, weak volume, missing key indicators, no R:R defined.",8,no
+2026-04-21T13:02:30,2026-04-21,ATO,short,88,no,0.2,Poor strategy win rate and missing key technical indicators outweigh signal components.,2,yes
+2026-04-21T13:02:31,2026-04-21,ALL,long,81,no,0.2,Poor strategy win rate and missing key technical indicators outweigh positive signals.,3,yes
+2026-04-21T13:02:31,2026-04-21,ARE,short,80,no,0.2,Poor strategy win rate and missing key technical indicators make this risky.,4,yes
+2026-04-21T13:02:31,2026-04-21,AIG,short,80,no,0.2,Poor strategy win rate and incomplete technical data make this unreliable signal,5,yes
+2026-04-21T13:07:37,2026-04-21,BIIB,long,95,no,0.2,Poor strategy win rate and missing critical technical indicators raise significant concerns.,1,no
+2026-04-21T13:07:45,2026-04-21,AXP,short,80,no,0.2,Poor strategy win rate and missing key technical indicators undermine signal reliability.,2,no
+2026-04-21T13:07:50,2026-04-21,AXON,long,80,no,0.2,Poor strategy win rate and missing technical indicators outweigh positive momentum signals.,3,no
+2026-04-21T13:07:56,2026-04-21,GOOG,short,73,no,0.2,"Poor strategy win rate, missing key indicators, weak volume undermines signal reliability.",4,no
+2026-04-21T13:08:00,2026-04-21,ADM,long,73,no,0.2,"Poor strategy win rate, weak volume, missing key technical indicators discourage entry.",5,no
+2026-04-21T13:08:00,2026-04-21,BIIB,long,95,no,0.2,Poor strategy win rate and missing critical technical indicators raise significant concerns.,1,yes
+2026-04-21T13:13:12,2026-04-21,BLK,short,85,no,0.2,Poor strategy win rate and missing key technical indicators outweigh bearish signals.,1,no
+2026-04-21T13:13:16,2026-04-21,AEE,short,80,no,0.2,Poor strategy win rate and missing key technical indicators raise concerns.,2,no
+2026-04-21T13:18:27,2026-04-21,ABNB,long,80,no,0.2,Poor strategy win rate and missing key technical indicators outweigh positive signals.,1,no
+2026-04-21T13:18:33,2026-04-21,BBY,long,80,no,0.2,Poor strategy win rate and missing key technical indicators make this unreliable.,2,no
+2026-04-21T13:18:36,2026-04-21,CHRW,long,80,no,0.2,"Poor strategy win rate, missing EMA/ADX data, and weak volume make this unreliable.",3,no
+2026-04-21T13:18:39,2026-04-21,BG,long,80,no,0.2,Poor strategy win rate and missing key technical indicators outweigh positive signals.,4,no
+2026-04-21T13:18:42,2026-04-21,APTV,long,75,no,0.2,"Poor strategy win rate, missing EMA/ADX data, no R:R ratio calculated.",5,no
+2026-04-21T13:23:49,2026-04-21,CCL,short,93,no,0.2,Poor strategy win rate and missing technical indicators raise significant concerns.,1,no
+2026-04-21T13:23:55,2026-04-21,ACN,short,80,no,0.2,Poor strategy win rate and missing critical technical indicators undermine signal reliability.,2,no
+2026-04-21T13:23:58,2026-04-21,CAH,short,73,no,0.1,Missing key technical indicators and terrible 22% win rate makes this high-risk.,3,no
+2026-04-21T13:29:09,2026-04-21,AJG,short,95,no,0.2,Missing key technical indicators and poor strategy win rate undermines signal reliability.,1,no
+2026-04-21T13:29:15,2026-04-21,CNC,long,88,no,0.2,Strategy shows poor 30% win rate with missing key technical indicators.,2,no
+2026-04-21T13:34:25,2026-04-21,ALGN,short,76,no,0.2,Poor strategy win rate and missing key technical indicators outweigh bearish signals.,1,no
+2026-04-21T13:34:29,2026-04-21,AMAT,short,75,no,0.2,Poor strategy win rate and missing key technical indicators make this unreliable.,2,no
+2026-04-21T13:39:41,2026-04-21,CME,short,80,no,0.2,Poor strategy win rate and missing key technical indicators raise significant concerns.,1,no
+2026-04-21T13:44:51,2026-04-21,AFL,long,80,no,0.2,Poor strategy win rate and missing critical technical indicators raise significant concerns.,1,no
+2026-04-21T13:44:56,2026-04-21,BRO,long,80,no,0.2,"Poor strategy win rate, missing key technical indicators, weak volume discourages entry.",2,no
+2026-04-21T13:45:01,2026-04-21,AON,long,80,no,0.2,Poor strategy win rate and missing EMA/ADX data create too much uncertainty.,3,no
+2026-04-21T13:50:08,2026-04-21,CEG,short,88,no,0.2,Poor strategy win rate and missing key technical indicators raise concerns.,1,no
+2026-04-21T13:50:12,2026-04-21,ACGL,long,80,no,0.2,"Poor strategy win rate, weak volume, missing technical indicators raise significant concerns.",2,no
+2026-04-21T13:50:17,2026-04-21,CL,short,80,no,0.2,"Poor strategy win rate, missing key technical indicators, and conflicting bullish news.",3,no
+2026-04-21T13:50:20,2026-04-21,STZ,short,80,no,0.2,Poor strategy win rate and missing critical technical indicators raise concerns.,4,no
+2026-04-21T13:55:27,2026-04-21,CTVA,long,88,no,0.2,Missing key technical indicators and poor strategy win rate override bullish signals.,1,no
+2026-04-21T13:55:34,2026-04-21,COO,short,80,no,0.2,Poor strategy win rate and missing key technical indicators make risk too high.,2,no
+2026-04-21T14:00:46,2026-04-21,CAT,long,75,no,0.2,EMA bearish alignment contradicts long signal despite positive momentum indicators.,1,no
+2026-04-21T14:05:54,2026-04-21,CCI,short,80,no,0.2,Missing critical technical data and poor strategy win rate make this unreliable.,1,no
+2026-04-21T14:11:01,2026-04-21,DHR,short,95,no,0.2,Strategy has terrible 22% win rate and missing key technical indicators.,1,no
+2026-04-21T14:11:05,2026-04-21,TECH,long,80,no,0.2,Missing critical technical indicators and poor strategy win rate override positive signals.,2,no
+2026-04-21T14:16:15,2026-04-21,AEP,short,80,no,0.2,Poor strategy win rate and missing critical technical indicators make this high-risk.,1,no
+2026-04-21T14:21:25,2026-04-21,DE,short,100,no,0.2,Strategy shows poor 22% win rate and missing critical technical indicators,1,no
+2026-04-21T14:31:36,2026-04-21,CPRT,long,73,no,0.2,Poor strategy win rate and missing key technical indicators make this high-risk.,1,no
+2026-04-21T14:31:38,2026-04-21,CIEN,short,70,no,0.2,"Poor strategy win rate, missing key indicators, and no risk-reward ratio provided.",2,no
+2026-04-21T14:36:47,2026-04-21,DVA,long,80,no,0.2,Poor strategy win rate and missing key technical indicators raise significant concerns.,1,no
+2026-04-21T14:36:52,2026-04-21,DTE,short,80,no,0.2,Poor strategy win rate and missing key technical indicators outweigh bearish setup.,2,no
+2026-04-21T14:41:59,2026-04-21,EMR,short,80,no,0.2,Poor strategy win rate and missing key technical indicators raise significant concerns.,1,no
+2026-04-21T14:47:05,2026-04-21,EQT,short,80,no,0.2,Poor strategy win rate and missing critical technical indicators undermines signal reliability.,1,no
+2026-04-21T14:52:19,2026-04-21,CTSH,short,80,no,0.2,Poor strategy win rate and missing key technical indicators outweigh positive setup signals.,1,no
+2026-04-21T14:57:28,2026-04-21,EQR,short,80,no,0.2,Poor strategy win rate and missing key technical indicators undermine signal reliability.,1,no
+2026-04-21T14:57:35,2026-04-21,DLTR,short,73,no,0.2,Poor strategy win rate and missing key technical indicators make risk too high.,2,no
+2026-04-21T15:02:45,2026-04-21,ETR,short,80,no,0.2,"Poor strategy win rate, missing key technical indicators, and bullish analyst target conflict.",1,no
+2026-04-21T15:02:49,2026-04-21,EQIX,long,80,no,0.2,Missing critical technical indicators and poor strategy win rate negate positive signals.,2,no
+2026-04-21T15:07:56,2026-04-21,EXPD,long,85,no,0.2,High RSI with poor strategy performance and missing critical technical indicators,1,no
+2026-04-21T15:07:58,2026-04-21,EME,long,75,no,0.2,Missing critical technical indicators and poor strategy win rate outweigh positive signals.,2,no
+2026-04-21T15:08:04,2026-04-21,EG,short,75,no,0.2,Strategy has poor 22% win rate and missing key technical indicators.,3,no
+2026-04-21T15:13:14,2026-04-21,FTV,long,88,no,0.2,Poor strategy win rate and missing critical technical indicators raise significant concerns.,1,no
+2026-04-21T15:13:16,2026-04-21,KO,short,80,no,0.2,Missing critical technical indicators and strategy has poor 22% win rate,2,no
+2026-04-21T15:13:19,2026-04-21,DDOG,long,80,no,0.2,Poor strategy win rate and missing key technical indicators outweigh positive signals.,3,no
+2026-04-21T15:13:22,2026-04-21,CDNS,long,75,no,0.2,Poor strategy win rate and missing key technical indicators outweigh positive signals.,4,no
+2026-04-21T15:18:32,2026-04-21,GD,short,100,no,0.2,Poor strategy performance and missing key technical indicators raise significant concerns.,1,no
+2026-04-21T15:18:38,2026-04-21,DD,long,76,no,0.2,Poor strategy win rate and missing key technical indicators outweigh positive signals.,2,no
+2026-04-21T15:18:42,2026-04-21,FOXA,short,75,no,0.2,Strategy has poor 22% win rate with missing EMA/ADX data indicating incomplete analysis.,3,no
+2026-04-21T15:18:48,2026-04-21,FE,short,73,no,0.2,"Poor strategy win rate, missing key technical indicators, and bullish analyst target conflict.",4,no
+2026-04-21T15:23:56,2026-04-21,GPC,long,95,no,0.2,"Strategy has poor 30% win rate, missing key technical indicators, insufficient risk-reward data.",1,no
+2026-04-21T15:23:59,2026-04-21,BXP,long,80,no,0.2,"Poor strategy win rate, bearish EMAs, and below VWAP outweigh positive volume surge.",2,no
+2026-04-21T15:29:07,2026-04-21,CRH,long,88,no,0.2,Poor strategy win rate and missing key technical indicators raise serious concerns.,1,no
+2026-04-21T15:29:11,2026-04-21,FDS,long,80,no,0.2,"Missing EMA/ADX data, poor strategy history, weak RSI signal despite volume surge.",2,no
+2026-04-21T15:29:14,2026-04-21,DOC,short,80,no,0.2,"Poor strategy winrate, missing key indicators, weak volume contradicts breakdown signal.",3,no
+2026-04-21T15:29:18,2026-04-21,HCA,short,80,no,0.2,Poor strategy win rate and missing key technical indicators raise significant concerns.,4,no
+2026-04-21T15:29:23,2026-04-21,FSLR,short,73,no,0.2,Poor strategy win rate and missing key technical indicators undermine signal reliability.,5,no
+2026-04-21T15:34:31,2026-04-21,HLT,long,88,no,0.2,EMA bearish alignment conflicts with long signal despite positive technicals and analyst upgrade.,1,no
+2026-04-21T15:34:34,2026-04-21,HUM,long,88,no,0.2,EMA bearish alignment conflicts with long signal despite good volume and VWAP position.,2,no
+2026-04-21T15:34:39,2026-04-21,AIZ,long,81,no,0.2,Poor strategy win rate and missing EMA/ADX data create too much uncertainty.,3,no
+2026-04-21T15:34:43,2026-04-21,GDDY,long,80,no,0.2,Poor strategy win rate and missing technical indicators outweigh positive signals.,4,no
+2026-04-21T15:34:47,2026-04-21,HII,short,80,no,0.2,Missing critical technical data and poor strategy win rate undermines signal reliability.,5,no
+2026-04-21T15:34:49,2026-04-21,HSY,short,73,no,0.2,Poor strategy win rate and missing key technical indicators raise significant concerns.,6,no
+2026-04-21T15:36:39,2026-04-21,MPWR,long,88,no,0.1,Missing critical technical data and bearish EMA alignment contradicts long signal.,1,no
+2026-04-21T15:36:42,2026-04-21,NTRS,long,88,no,0.1,Missing critical technical data and bearish EMA alignment contradicts long signal.,2,no
+2026-04-21T15:36:48,2026-04-21,STLD,long,88,no,0.1,"Critical technical indicators missing, bearish EMA trend contradicts long signal direction.",3,no
+2026-04-21T15:36:51,2026-04-21,NWS,long,75,no,0.1,"Missing critical data: RSI, VWAP, EMAs all zero, no R:R ratio calculated.",4,no
+2026-04-21T15:36:52,2026-04-21,MPWR,long,88,no,0.1,Missing critical technical data and bearish EMA alignment contradicts long signal.,1,yes
+2026-04-21T15:42:02,2026-04-21,HSY,short,100,no,0.2,Strategy has poor 22% win rate and missing critical technical indicators.,1,no
+2026-04-21T15:42:06,2026-04-21,ICE,short,100,no,0.2,Poor strategy win rate and missing key technical indicators raise concerns.,2,no
+2026-04-21T15:42:15,2026-04-21,IP,short,100,no,0.2,Strategy has poor 22% win rate and missing critical technical indicators.,3,no
+2026-04-21T15:42:20,2026-04-21,CRL,long,80,no,0.2,Poor strategy win rate and missing key technical indicators undermine signal reliability.,4,no
+2026-04-21T15:42:25,2026-04-21,HAS,short,80,no,0.2,Poor strategy win rate and missing key technical indicators undermine signal reliability.,5,no
+2026-04-21T15:42:29,2026-04-21,PODD,short,80,no,0.2,Poor strategy win rate and missing key technical indicators make risk too high.,6,no
+2026-04-21T15:47:37,2026-04-21,JBHT,long,100,no,0.2,Strategy has poor 30% win rate and bearish EMA alignment contradicts long signal.,1,no
+2026-04-21T15:47:40,2026-04-21,JKHY,long,93,no,0.2,Strategy has poor 30% win rate and missing key technical indicators,2,no
+2026-04-21T15:47:44,2026-04-21,PODD,short,80,no,0.2,Strategy has poor 22% win rate despite technical setup quality.,3,no
+2026-04-21T15:47:46,2026-04-21,ISRG,short,80,no,0.2,Missing key technical indicators and poor strategy win rate undermines signal reliability.,4,no
+2026-04-21T15:47:50,2026-04-21,JBL,long,80,no,0.2,"Poor strategy win rate, missing technical data, and weak volume undermine signal quality.",5,no
+2026-04-21T15:47:54,2026-04-21,GILD,short,75,no,0.2,Poor strategy win rate and missing key technical indicators undermine signal reliability.,6,no
+2026-04-21T15:47:59,2026-04-21,HON,short,75,no,0.2,Poor strategy win rate and missing key technical indicators undermine signal reliability.,7,no
+2026-04-21T15:53:24,2026-04-21,KIM,short,100,no,0.2,Poor strategy win rate and missing key technical indicators raise significant concerns.,1,no
+2026-04-21T15:53:26,2026-04-21,INVH,short,95,no,0.2,Strategy has poor 22% win rate and missing key technical indicators,2,no
+2026-04-21T15:53:31,2026-04-21,KEY,short,95,no,0.2,Poor strategy win rate and missing critical technical indicators make this unreliable.,3,no
+2026-04-21T15:53:36,2026-04-21,KVUE,short,80,no,0.2,"Strategy has poor 22% win rate, missing technical indicators, and oversold RSI suggests bounce risk.",4,no
+2026-04-21T15:58:48,2026-04-21,AVB,short,100,no,0.2,Strategy has terrible 22% win rate with missing technical indicators and zero R:R ratio.,1,no
+2026-04-21T15:58:51,2026-04-21,LDOS,short,93,no,0.2,Strategy has poor 22% win rate despite high signal score and bearish technicals.,2,no
+2026-04-21T15:58:56,2026-04-21,LHX,short,80,no,0.2,Missing critical technical indicators and poor strategy win rate undermines signal reliability.,3,no
+2026-04-21T15:58:59,2026-04-21,KHC,short,80,no,0.2,Strategy has poor 22% win rate and missing critical technical indicators,4,no
+2026-04-21T15:59:06,2026-04-21,GILD,short,75,no,0.2,Poor strategy win rate and missing key technical indicators outweigh bearish setup.,5,no
+2026-04-21T15:59:11,2026-04-21,HON,short,75,no,0.2,Strategy has poor 22% win rate and missing critical technical indicators like ADX/MACD.,6,no
+2026-04-22T13:01:21,2026-04-22,AEP,short,100,no,0.2,Strategy has poor 22% win rate and missing critical technical indicators like ADX/MACD.,1,no
+2026-04-22T13:01:23,2026-04-22,MMM,short,88,no,0.2,Strategy shows poor 22% win rate with missing technical indicators and conflicting analyst coverage.,2,no
+2026-04-22T13:01:26,2026-04-22,AMCR,short,88,no,0.2,Strategy has poor 22% win rate and missing critical technical indicators.,3,no
+2026-04-22T13:01:32,2026-04-22,ABT,short,85,no,0.2,Poor strategy win rate and missing critical technical indicators raise significant concerns.,4,no
+2026-04-22T13:01:35,2026-04-22,AFL,short,80,no,0.2,Poor strategy win rate and missing key technical indicators make this high-risk trade.,5,no
+2026-04-22T13:01:38,2026-04-22,LNT,short,80,no,0.2,"Poor strategy win rate, missing key technical data, and weak volume signal",6,no
+2026-04-22T13:01:42,2026-04-22,ALL,short,80,no,0.2,Poor strategy win rate and missing key technical indicators make this unreliable.,7,no
+2026-04-22T13:01:45,2026-04-22,AEE,short,80,no,0.2,Strategy has terrible 22% win rate with missing technical indicators and weak volume,8,no
+2026-04-22T13:01:48,2026-04-22,AMT,short,80,no,0.2,Strategy has poor 22% win rate with weak volume and missing technical indicators.,9,no
+2026-04-22T13:01:52,2026-04-22,AMGN,short,80,no,0.2,Missing critical technical indicators and poor strategy win rate make this trade unreliable.,10,no
+2026-04-22T13:02:00,2026-04-22,APH,short,80,no,0.2,Missing critical technical indicators and poor strategy win rate discourage trade execution.,11,no
+2026-04-22T13:02:03,2026-04-22,ACGL,short,80,no,0.2,Poor strategy win rate and missing key technical indicators raise concerns.,12,no
+2026-04-22T13:02:05,2026-04-22,AIG,short,80,no,0.2,Poor strategy win rate and missing key technical indicators raise significant concerns.,13,no
+2026-04-22T13:02:09,2026-04-22,ACN,short,73,no,0.2,Missing key technical indicators and poor strategy win rate undermines signal reliability.,14,no
+2026-04-22T13:02:11,2026-04-22,AON,short,73,no,0.2,Poor strategy win rate and missing critical technical indicators undermine signal reliability.,15,no
+2026-04-22T13:02:17,2026-04-22,ANET,long,73,no,0.2,"Poor strategy win rate, missing key technical indicators, weak volume despite bullish setup.",16,no
+2026-04-22T13:02:17,2026-04-22,AEP,short,100,no,0.2,Strategy has poor 22% win rate and missing critical technical indicators like ADX/MACD.,1,yes
+2026-04-22T13:07:26,2026-04-22,AEE,short,88,no,0.2,Strategy has poor 22% win rate and missing critical technical indicators.,1,no
+2026-04-22T13:07:33,2026-04-22,LNT,short,80,no,0.2,"Poor strategy win rate, missing key indicators, extremely low volume raises execution concerns.",2,no
+2026-04-22T13:07:35,2026-04-22,ALL,short,80,no,0.2,Poor strategy win rate and missing key technical indicators make this unreliable.,3,no
+2026-04-22T13:07:39,2026-04-22,AIG,short,80,no,0.2,Poor strategy win rate and missing key technical indicators undermine signal reliability.,4,no
+2026-04-22T13:07:43,2026-04-22,AMGN,short,80,no,0.2,Poor strategy win rate and missing critical technical indicators raise execution concerns.,5,no
+2026-04-22T13:07:46,2026-04-22,AON,short,80,no,0.2,"Strategy has poor 22% win rate, missing key technical indicators, weak volume",6,no
+2026-04-22T13:07:49,2026-04-22,AMT,short,80,no,0.2,Strategy shows poor 22% win rate with missing technical indicators and weak volume.,7,no
+2026-04-22T13:07:53,2026-04-22,APH,short,80,no,0.2,"Poor strategy win rate, missing key technical indicators, and weak volume contraindicate entry.",8,no
+2026-04-22T13:07:57,2026-04-22,ANET,long,80,no,0.2,Missing critical technical data and poor strategy win rate negate positive signals.,9,no
+2026-04-22T13:08:02,2026-04-22,AJG,short,80,no,0.2,Missing critical technical data and poor strategy win rate outweigh signal strength.,10,no
+2026-04-22T13:08:09,2026-04-22,ACGL,short,80,no,0.2,Poor strategy win rate and missing critical technical indicators undermine signal reliability.,11,no
+2026-04-22T13:08:13,2026-04-22,BKR,long,80,no,0.2,"Poor strategy win rate, missing technical data, weak volume undermines signal reliability.",12,no
+2026-04-22T13:08:16,2026-04-22,ACN,short,73,no,0.2,Poor strategy win rate and missing key technical indicators make risk too high.,13,no
+2026-04-22T13:13:29,2026-04-22,ANET,long,88,no,0.2,Strategy has poor 30% win rate and missing key technical indicators,1,no
+2026-04-22T13:13:32,2026-04-22,AMT,short,80,no,0.2,Strategy has poor 22% win rate with missing technical indicators and weak volume.,2,no
+2026-04-22T13:13:36,2026-04-22,AXP,short,80,no,0.2,Poor strategy win rate and missing key technical indicators make risk too high.,3,no
+2026-04-22T13:13:40,2026-04-22,APH,short,80,no,0.2,"Strategy has poor 22% win rate, missing key technical indicators, weak volume",4,no
+2026-04-22T13:13:42,2026-04-22,AON,short,80,no,0.2,Strategy has terrible 22% win rate and missing key technical indicators,5,no
+2026-04-22T13:13:47,2026-04-22,ACGL,short,80,no,0.2,Strategy shows poor 22% win rate with missing technical indicators and weak volume.,6,no
+2026-04-22T13:13:51,2026-04-22,AJG,short,80,no,0.2,Poor strategy win rate and missing key technical indicators undermine signal reliability.,7,no
+2026-04-22T13:13:54,2026-04-22,BDX,short,80,no,0.2,Missing critical technical data and poor strategy win rate makes signal unreliable.,8,no
+2026-04-22T13:13:57,2026-04-22,ACN,short,73,no,0.2,Poor strategy win rate and missing key technical indicators undermine signal reliability.,9,no
+2026-04-22T13:13:59,2026-04-22,AVY,short,73,no,0.2,Strategy has poor 22% win rate and missing key technical indicators.,10,no
+2026-04-22T13:14:02,2026-04-22,BALL,short,73,no,0.2,Poor strategy win rate and weak volume despite decent technical setup.,11,no
+2026-04-22T13:14:06,2026-04-22,BA,long,73,no,0.2,"Poor strategy history, weak volume, missing technical indicators make risk too high.",12,no
+2026-04-22T13:19:20,2026-04-22,BLK,long,95,no,0.2,Poor strategy win rate and missing key technical indicators undermine high score.,1,no
+2026-04-22T13:19:23,2026-04-22,BSX,long,88,no,0.2,Poor strategy win rate and missing key technical indicators outweigh positive signals.,2,no
+2026-04-22T13:19:25,2026-04-22,BRO,short,88,no,0.2,Strategy has terrible 22% win rate and missing critical technical indicators.,3,no
+2026-04-22T13:19:29,2026-04-22,ACGL,short,80,no,0.2,Strategy has poor 22% win rate and missing critical technical indicators,4,no
+2026-04-22T13:19:31,2026-04-22,AJG,short,80,no,0.2,Poor strategy win rate and missing key technical indicators undermine signal reliability.,5,no
+2026-04-22T13:19:33,2026-04-22,BDX,short,80,no,0.2,Poor strategy win rate and missing key technical indicators make this unreliable.,6,no
+2026-04-22T13:19:37,2026-04-22,ADM,long,75,no,0.2,Missing critical technical indicators and poor strategy win rate outweigh positive signals.,7,no
+2026-04-22T13:19:40,2026-04-22,BIIB,long,75,no,0.2,Strategy shows poor 30% win rate despite bullish technicals and UBS upgrade.,8,no
+2026-04-22T13:19:44,2026-04-22,BX,long,75,no,0.2,Missing critical technical indicators and poor strategy win rate negates positive signals.,9,no
+2026-04-22T13:19:47,2026-04-22,AVY,short,73,no,0.2,Strategy has poor 22% win rate and missing critical technical indicators.,10,no
+2026-04-22T13:19:51,2026-04-22,BALL,short,73,no,0.2,Poor strategy win rate and weak volume despite bearish technicals signal low conviction.,11,no
+2026-04-22T13:19:54,2026-04-22,BA,long,73,no,0.2,"Poor strategy win rate, weak volume, missing key technical indicators discourage entry.",12,no
+2026-04-22T13:25:04,2026-04-22,BKR,long,100,no,0.2,"Missing critical data (EMA, ADX, MACD) and poor strategy win rate negate positives.",1,no
+2026-04-22T13:25:09,2026-04-22,BA,long,88,no,0.2,Poor strategy win rate and missing key technical indicators outweigh positive signals.,2,no
+2026-04-22T13:25:16,2026-04-22,AAPL,long,81,no,0.2,"Missing critical EMA/ADX data, poor strategy history, RSI overbought concerns",3,no
+2026-04-22T13:25:19,2026-04-22,ADM,long,80,no,0.2,Missing key technical indicators and poor strategy win rate outweigh positive signals.,4,no
+2026-04-22T13:25:22,2026-04-22,BDX,short,80,no,0.2,Poor strategy win rate and missing critical technical indicators make this unreliable.,5,no
+2026-04-22T13:25:25,2026-04-22,CCL,short,80,no,0.2,Strategy has terrible 22% win rate with missing technical indicators and stale news context.,6,no
+2026-04-22T13:25:27,2026-04-22,COF,short,80,no,0.2,"Poor strategy win rate, bullish analyst target, missing key technical indicators.",7,no
+2026-04-22T13:25:32,2026-04-22,CAH,short,80,no,0.2,Strategy has poor 22% win rate and missing key technical indicators.,8,no
+2026-04-22T13:25:36,2026-04-22,BIIB,long,75,no,0.2,Strategy shows poor 30% win rate despite bullish technicals and news.,9,no
+2026-04-22T13:25:39,2026-04-22,CDNS,long,75,no,0.2,Poor strategy win rate and missing key technical indicators outweigh positive signals.,10,no
+2026-04-22T13:25:45,2026-04-22,ACN,short,73,no,0.2,Missing critical technical data and poor strategy win rate undermines signal reliability.,11,no
+2026-04-22T13:25:48,2026-04-22,AVY,short,73,no,0.2,Poor strategy win rate and missing key technical indicators make this unreliable.,12,no
+2026-04-22T13:25:51,2026-04-22,BALL,short,73,no,0.2,Poor strategy win rate and weak volume contradict technical setup strength.,13,no
+2026-04-22T13:31:09,2026-04-22,ALGN,short,95,no,0.2,Strategy has poor 22% win rate and missing critical technical indicators.,1,no
+2026-04-22T13:31:12,2026-04-22,CCL,short,80,no,0.2,Poor strategy win rate and missing key technical indicators raise concerns.,2,no
+2026-04-22T13:31:17,2026-04-22,CAH,short,80,no,0.2,"Poor strategy win rate, missing key technical indicators, weak volume discourage entry.",3,no
+2026-04-22T13:31:19,2026-04-22,CBOE,short,80,no,0.2,Poor strategy win rate and missing technical indicators make this high-risk trade.,4,no
+2026-04-22T13:31:22,2026-04-22,COR,short,80,no,0.2,Poor strategy win rate and missing key technical indicators make this unreliable.,5,no
+2026-04-22T13:31:26,2026-04-22,COF,short,80,no,0.2,Poor strategy win rate and bullish analyst target conflict with short signal.,6,no
+2026-04-22T13:31:30,2026-04-22,CHD,short,80,no,0.2,"Poor strategy win rate, missing key technical indicators, and weak volume signal quality concerns.",7,no
+2026-04-22T13:31:34,2026-04-22,CTAS,short,80,no,0.2,Missing key technical indicators and poor strategy win rate undermines signal reliability.,8,no
+2026-04-22T13:31:38,2026-04-22,CF,long,80,no,0.2,Poor strategy win rate and missing key technical indicators outweigh positive signals.,9,no
+2026-04-22T13:31:41,2026-04-22,BIIB,long,75,no,0.2,Strategy shows poor 30% win rate despite positive technicals and news.,10,no
+2026-04-22T13:31:44,2026-04-22,AVY,short,73,no,0.2,Strategy has poor 22% win rate and missing critical technical indicators.,11,no
+2026-04-22T13:31:47,2026-04-22,BALL,short,73,no,0.2,Poor strategy win rate and missing key technical indicators raise significant concerns.,12,no
+2026-04-22T13:31:55,2026-04-22,BR,short,73,no,0.2,Missing key technical indicators and terrible 22% strategy win rate override signal.,13,no
+2026-04-22T13:37:09,2026-04-22,CTAS,short,95,no,0.2,Strategy has poor 22% win rate and missing key technical indicators like ADX/MACD.,1,no
+2026-04-22T13:37:12,2026-04-22,BG,long,80,no,0.2,"Poor strategy win rate, missing key indicators, and weak volume signal major risks.",2,no
+2026-04-22T13:37:16,2026-04-22,CDNS,long,80,no,0.2,Poor strategy win rate and missing key technical indicators raise significant concerns.,3,no
+2026-04-22T13:37:21,2026-04-22,COF,short,80,no,0.2,"Poor strategy win rate, missing key technical indicators, bullish analyst target contradicts short thesis",4,no
+2026-04-22T13:37:23,2026-04-22,CHD,short,80,no,0.2,Poor strategy win rate and missing key technical indicators raise concerns.,5,no
+2026-04-22T13:37:26,2026-04-22,CF,long,80,no,0.2,Poor strategy win rate and missing key technical indicators outweigh bullish signals.,6,no
+2026-04-22T13:37:30,2026-04-22,CLX,short,80,no,0.2,Poor strategy win rate and missing key technical indicators outweigh moderate signal score.,7,no
+2026-04-22T13:37:34,2026-04-22,CSCO,long,80,no,0.2,Poor strategy win rate and missing key technical indicators outweigh positive signals.,8,no
+2026-04-22T13:37:36,2026-04-22,C,short,80,no,0.2,Poor strategy win rate 22% and missing critical technical indicators ADX/MACD,9,no
+2026-04-22T13:37:39,2026-04-22,CI,short,80,no,0.2,Strategy has poor 22% win rate with missing technical indicators and weak volume.,10,no
+2026-04-22T13:37:41,2026-04-22,KO,short,80,no,0.2,Strategy has poor 22% win rate and missing critical technical indicators like ADX/MACD.,11,no
+2026-04-22T13:37:44,2026-04-22,AVY,short,73,no,0.2,"Poor strategy win rate, missing key technical indicators, weak volume signals high risk.",12,no
+2026-04-22T13:37:48,2026-04-22,BR,short,73,no,0.2,"Poor strategy winrate, missing key indicators, weak volume despite oversold RSI levels.",13,no
+2026-04-22T13:42:55,2026-04-22,C,short,95,no,0.2,Poor strategy win rate and missing key technical indicators outweigh signal score.,1,no
+2026-04-22T13:42:58,2026-04-22,CI,short,88,no,0.2,Strategy has poor 22% win rate and missing key technical indicators.,2,no
+2026-04-22T13:43:04,2026-04-22,CF,long,88,no,0.2,Poor strategy win rate and missing critical technical indicators undermine signal reliability.,3,no
+2026-04-22T13:43:12,2026-04-22,CL,short,88,no,0.2,Poor strategy win rate and missing key technical indicators raise serious concerns.,4,no
+2026-04-22T13:43:16,2026-04-22,CMS,short,81,no,0.2,Poor strategy win rate and missing key technical indicators undermine high signal score.,5,no
+2026-04-22T13:43:19,2026-04-22,CLX,short,80,no,0.2,Poor strategy win rate and missing key technical indicators outweigh modest signal strength.,6,no
+2026-04-22T13:43:22,2026-04-22,CSCO,long,80,no,0.2,Poor strategy win rate and missing critical technical indicators make this risky.,7,no
+2026-04-22T13:43:30,2026-04-22,KO,short,80,no,0.2,Poor strategy win rate and missing key technical indicators raise significant concerns.,8,no
+2026-04-22T13:43:32,2026-04-22,CME,short,80,no,0.2,Missing critical technical indicators and poor strategy win rate undermines signal reliability.,9,no
+2026-04-22T13:43:37,2026-04-22,BR,short,73,no,0.2,Poor strategy win rate and missing key technical indicators make this high-risk trade.,10,no
+2026-04-22T13:43:40,2026-04-22,AVY,short,73,no,0.2,Strategy shows terrible 22% win rate with missing technical indicators and weak volume.,11,no
+2026-04-22T13:43:49,2026-04-22,COP,long,73,no,0.2,"Poor strategy win rate, missing key indicators, weak volume despite bullish technicals.",12,no
+2026-04-22T13:49:00,2026-04-22,ED,short,95,no,0.2,Strategy has poor 22% win rate and missing key technical indicators.,1,no
+2026-04-22T13:49:04,2026-04-22,CSCO,long,80,no,0.2,Poor strategy win rate and missing key technical indicators outweigh positive signals.,2,no
+2026-04-22T13:49:09,2026-04-22,KO,short,80,no,0.2,Strategy shows poor 22% win rate with missing technical indicators raising reliability concerns.,3,no
+2026-04-22T13:49:14,2026-04-22,CLX,short,80,no,0.2,Poor strategy win rate and missing key technical indicators undermine signal reliability.,4,no
+2026-04-22T13:49:16,2026-04-22,CME,short,80,no,0.2,Missing key technical indicators and poor strategy win rate outweigh setup signals.,5,no
+2026-04-22T13:49:19,2026-04-22,COP,long,80,no,0.2,"Poor strategy win rate, missing key indicators, weak volume despite decent setup.",6,no
+2026-04-22T13:49:21,2026-04-22,COO,short,80,no,0.2,Poor strategy win rate and missing key technical indicators undermine signal reliability.,7,no
+2026-04-22T13:49:24,2026-04-22,AVY,short,73,no,0.2,Strategy shows poor 22% win rate with incomplete technicals and weak volume,8,no
+2026-04-22T13:49:28,2026-04-22,BR,short,73,no,0.2,"Poor strategy winrate, missing technical indicators, and weak volume suggest high risk trade.",9,no
+2026-04-22T13:54:36,2026-04-22,COO,short,80,no,0.2,Poor strategy win rate and missing key technical indicators undermine signal reliability.,1,no
+2026-04-22T13:54:39,2026-04-22,CTRA,long,80,no,0.2,"Missing critical technical indicators, poor strategy win rate, minimal upside potential.",2,no
+2026-04-22T13:54:44,2026-04-22,CCI,short,80,no,0.2,Missing critical technical data and poor strategy win rate make this unreliable.,3,no
+2026-04-22T13:54:47,2026-04-22,AVY,short,73,no,0.2,Poor strategy win rate and missing key technical indicators make this unreliable.,4,no
+2026-04-22T13:54:50,2026-04-22,BR,short,73,no,0.2,Poor strategy win rate and missing key technical indicators undermine signal reliability.,5,no
+2026-04-22T13:54:54,2026-04-22,CMCSA,short,73,no,0.2,Poor strategy win rate and missing key technical indicators make this unreliable.,6,no
+2026-04-22T13:54:58,2026-04-22,COP,long,73,no,0.2,Poor strategy win rate and missing key technical indicators undermine signal reliability.,7,no
+2026-04-22T14:00:06,2026-04-22,DECK,short,100,no,0.2,Strategy has poor 22% win rate and missing key technical indicators,1,no
+2026-04-22T14:00:12,2026-04-22,COP,long,88,no,0.2,Poor strategy win rate and missing key technical indicators override positive signal components.,2,no
+2026-04-22T14:00:16,2026-04-22,DAL,short,88,no,0.2,Poor strategy win rate and missing key technical indicators raise concerns.,3,no
+2026-04-22T14:00:21,2026-04-22,BX,short,83,no,0.2,Poor strategy win rate and missing key technical indicators raise significant concerns.,4,no
+2026-04-22T14:00:27,2026-04-22,DE,short,80,no,0.2,Poor strategy win rate and missing technical indicators outweigh bearish setup.,5,no
+2026-04-22T14:00:37,2026-04-22,DXCM,short,80,no,0.2,Poor strategy win rate and missing technical data outweigh modest signal strength.,6,no
+2026-04-22T14:00:41,2026-04-22,CMI,long,75,no,0.2,Missing key technical indicators and poor strategy win rate outweigh positive signals.,7,no
+2026-04-22T14:00:44,2026-04-22,CMCSA,short,73,no,0.2,Strategy has poor 22% win rate and missing key technical indicators,8,no
+2026-04-22T14:00:48,2026-04-22,CPAY,short,73,no,0.2,Strategy shows poor 22% win rate with weak volume and missing key technical indicators.,9,no
+2026-04-22T14:05:58,2026-04-22,DD,short,95,no,0.2,Missing critical technical data and poor strategy win rate outweigh signal strength.,1,no
+2026-04-22T14:06:05,2026-04-22,DRI,long,90,no,0.2,Poor strategy win rate and missing critical technical indicators raise significant concerns.,2,no
+2026-04-22T14:06:09,2026-04-22,DXCM,short,88,no,0.2,Poor strategy win rate and missing key technical indicators raise significant concerns.,3,no
+2026-04-22T14:06:12,2026-04-22,DG,short,88,no,0.2,Strategy shows poor 22% win rate and missing key technical indicators raise concerns.,4,no
+2026-04-22T14:06:14,2026-04-22,ECL,short,88,no,0.2,Strategy has poor 22% win rate and missing key technical indicators,5,no
+2026-04-22T14:06:17,2026-04-22,BIIB,long,80,no,0.2,"Poor strategy win rate, weak volume, missing key technical indicators offset positive signals.",6,no
+2026-04-22T14:06:20,2026-04-22,SATS,short,80,no,0.2,Poor strategy win rate and missing key technical indicators raise significant concerns.,7,no
+2026-04-22T14:06:22,2026-04-22,CMCSA,long,75,no,0.2,"Poor strategy win rate, missing key technical indicators, weak volume signal strength insufficient.",8,no
+2026-04-22T14:06:26,2026-04-22,CPAY,short,73,no,0.2,Poor strategy win rate and missing key technical indicators raise significant concerns.,9,no
+2026-04-22T14:06:30,2026-04-22,D,short,73,no,0.2,Poor strategy win rate and missing key technical indicators make this unreliable.,10,no
+2026-04-22T14:11:38,2026-04-22,BIIB,long,95,no,0.2,Missing critical technical data and poor strategy win rate outweigh positive signals.,1,no
+2026-04-22T14:11:42,2026-04-22,ACN,short,80,no,0.2,Strategy has poor 22% win rate and missing critical technical indicators like ADX/MACD.,2,no
+2026-04-22T14:11:45,2026-04-22,STZ,short,80,no,0.2,Poor strategy win rate and missing key technical indicators raise concerns.,3,no
+2026-04-22T14:11:48,2026-04-22,D,short,80,no,0.2,Poor strategy win rate and missing key technical indicators make risk too high.,4,no
+2026-04-22T14:11:51,2026-04-22,EIX,short,80,no,0.2,Strategy has poor 22% win rate and missing key technical indicators.,5,no
+2026-04-22T14:11:54,2026-04-22,CPAY,short,73,no,0.2,Strategy has poor 22% win rate and missing key technical indicators.,6,no
+2026-04-22T14:11:56,2026-04-22,SATS,short,73,no,0.2,Poor strategy win rate and missing key technical indicators make this unreliable.,7,no
+2026-04-22T14:11:59,2026-04-22,EME,long,73,no,0.2,"Poor strategy win rate, missing key technical indicators, weak volume concerns",8,no
+2026-04-22T14:12:04,2026-04-22,ETR,short,73,no,0.2,Poor strategy win rate and missing key technical indicators raise red flags.,9,no
+2026-04-22T14:17:28,2026-04-22,ELV,short,95,no,0.2,Missing critical technical data and poor strategy win rate outweigh signal strength.,1,no
+2026-04-22T14:17:31,2026-04-22,EMR,short,95,no,0.2,Strategy has terrible 22% win rate and missing critical technical indicators.,2,no
+2026-04-22T14:17:36,2026-04-22,EQR,short,95,no,0.2,Strategy has terrible 22% win rate despite strong technical setup.,3,no
+2026-04-22T14:17:39,2026-04-22,EOG,long,88,no,0.2,Poor strategy win rate and missing key technical indicators outweigh bullish signals.,4,no
+2026-04-22T14:17:41,2026-04-22,EME,long,80,no,0.2,Poor strategy win rate and missing key technical indicators raise significant concerns.,5,no
+2026-04-22T14:17:44,2026-04-22,BALL,short,73,no,0.2,Poor strategy win rate and weak volume undermine technical setup despite bearish alignment.,6,no
+2026-04-22T14:17:47,2026-04-22,CPAY,short,73,no,0.2,Poor strategy win rate and missing key technical indicators raise significant concerns.,7,no
+2026-04-22T14:17:51,2026-04-22,SATS,short,73,no,0.2,Poor strategy win rate and missing key technical indicators make this high-risk.,8,no
+2026-04-22T14:23:05,2026-04-22,ES,short,88,no,0.2,Poor strategy win rate and missing key technical indicators make risk too high.,1,no
+2026-04-22T14:23:07,2026-04-22,SATS,short,81,no,0.2,Strategy has poor 22% win rate and missing key technical indicators.,2,no
+2026-04-22T14:23:10,2026-04-22,CPAY,short,80,no,0.2,Poor strategy win rate and missing key technical indicators raise significant concerns.,3,no
+2026-04-22T14:23:18,2026-04-22,EFX,short,80,no,0.2,Missing critical technical indicators and poor strategy win rate undermines signal reliability.,4,no
+2026-04-22T14:23:21,2026-04-22,EVRG,short,80,no,0.2,Missing key technical indicators and poor strategy win rate make this unreliable.,5,no
+2026-04-22T14:23:23,2026-04-22,ESS,short,73,no,0.2,Poor strategy win rate and missing key technical indicators raise significant concerns.,6,no
+2026-04-22T14:28:36,2026-04-22,FIS,short,95,no,0.2,Strategy has poor 22% win rate with incomplete technicals and missing R:R ratio.,1,no
+2026-04-22T14:28:39,2026-04-22,ESS,short,88,no,0.2,Poor strategy win rate and missing key technical indicators make this high-risk.,2,no
+2026-04-22T14:28:43,2026-04-22,EXC,short,85,no,0.2,Missing critical technical indicators and poor strategy win rate make this unreliable.,3,no
+2026-04-22T14:28:47,2026-04-22,CSGP,short,80,no,0.2,Missing critical EMA/ADX/MACD data plus terrible 22% strategy win rate,4,no
+2026-04-22T14:28:51,2026-04-22,F,short,73,no,0.2,Poor strategy win rate and missing key technical indicators raise significant concerns.,5,no
+2026-04-22T14:34:02,2026-04-22,EG,short,88,no,0.2,Missing critical technical data and poor 22% strategy win rate outweigh signal strength.,1,no
+2026-04-22T14:34:05,2026-04-22,CMI,long,80,no,0.2,Poor strategy win rate and missing key technical indicators outweigh positive volume surge.,2,no
+2026-04-22T14:34:11,2026-04-22,FE,short,80,no,0.2,Strategy has poor 22% win rate and missing key technical indicators like ADX/MACD.,3,no
+2026-04-22T14:34:15,2026-04-22,FTNT,long,80,no,0.2,Poor strategy win rate and missing EMA/ADX data create high uncertainty.,4,no
+2026-04-22T14:34:18,2026-04-22,ETR,short,73,no,0.2,Poor strategy win rate and missing key technical indicators raise execution concerns.,5,no
+2026-04-22T14:39:25,2026-04-22,GEHC,short,80,no,0.2,Missing critical technical data and poor strategy win rate invalidate signal reliability.,1,no
+2026-04-22T14:39:29,2026-04-22,GEV,long,80,no,0.2,Poor strategy win rate and missing critical technical indicators outweigh positive news.,2,no
+2026-04-22T14:39:33,2026-04-22,BALL,short,73,no,0.2,Poor strategy win rate and weak volume negate technical setup strength.,3,no
+2026-04-22T14:44:41,2026-04-22,GILD,short,88,no,0.2,Poor strategy win rate and missing key technical indicators outweigh bearish setup.,1,no
+2026-04-22T14:44:44,2026-04-22,EQT,long,80,no,0.2,Poor strategy win rate and missing technical indicators outweigh positive signals.,2,no
+2026-04-22T14:44:49,2026-04-22,GPN,short,80,no,0.2,Poor strategy win rate and missing critical technical indicators raise concerns.,3,no
+2026-04-22T14:44:52,2026-04-22,GPC,short,73,no,0.2,Poor strategy win rate and missing technical indicators outweigh bearish signal strength.,4,no
+2026-04-22T14:50:01,2026-04-22,GDDY,long,80,no,0.2,Poor strategy win rate and missing technical indicators outweigh moderate bullish signals.,1,no
+2026-04-22T14:50:03,2026-04-22,HIG,short,80,no,0.2,Strategy has poor 22% win rate and missing critical technical indicators,2,no
+2026-04-22T14:50:05,2026-04-22,CMCSA,short,75,no,0.2,Missing critical technical indicators and poor strategy win rate undermines signal reliability.,3,no
+2026-04-22T14:50:11,2026-04-22,FISV,short,75,no,0.2,Strategy has terrible 22% win rate and missing critical technical indicators.,4,no
+2026-04-22T14:50:14,2026-04-22,HAL,long,73,no,0.2,Poor strategy win rate and weak volume despite positive setup and bullish analyst sentiment.,5,no
+2026-04-22T14:50:19,2026-04-22,HAS,short,73,no,0.2,Poor strategy win rate and missing key technical indicators raise significant concerns.,6,no
+2026-04-22T14:55:27,2026-04-22,HSY,short,100,no,0.2,Strategy has poor 22% win rate despite strong technical setup.,1,no
+2026-04-22T14:55:34,2026-04-22,HON,short,95,no,0.2,Strategy shows poor 22% win rate with missing key technical indicators.,2,no
+2026-04-22T14:55:40,2026-04-22,HAS,short,80,no,0.2,"Poor strategy win rate, missing key technical indicators, weak volume discourages entry.",3,no
+2026-04-22T14:55:44,2026-04-22,HLT,short,80,no,0.2,Poor strategy win rate and missing key technical indicators outweigh positive signals.,4,no
+2026-04-22T14:55:46,2026-04-22,DOC,short,80,no,0.2,Poor strategy win rate and missing key technical indicators make this unreliable.,5,no
+2026-04-22T14:55:50,2026-04-22,HCA,short,73,no,0.2,Poor strategy win rate and missing key technical indicators raise significant concerns.,6,no
+2026-04-22T15:01:04,2026-04-22,INCY,short,80,no,0.2,Poor strategy win rate and missing key technical indicators raise significant concerns.,1,no
+2026-04-22T15:01:09,2026-04-22,IEX,short,80,no,0.2,Strategy has poor 22% win rate and missing technical indicators raise reliability concerns.,2,no
+2026-04-22T15:01:14,2026-04-22,IDXX,short,80,no,0.2,Strategy has poor 22% win rate and missing key technical indicators,3,no
+2026-04-22T15:01:17,2026-04-22,HCA,short,73,no,0.2,Poor strategy win rate and missing key technical indicators raise significant concerns.,4,no
+2026-04-22T15:06:23,2026-04-22,IBKR,short,100,no,0.2,Poor strategy performance and bullish analyst upgrades conflict with short signal.,1,no
+2026-04-22T15:06:26,2026-04-22,IP,short,85,no,0.2,Missing critical technical indicators and poor strategy win rate outweigh positive signals.,2,no
+2026-04-22T15:06:29,2026-04-22,PODD,short,80,no,0.2,Strategy has poor 22% win rate despite good technical setup,3,no
+2026-04-22T15:11:37,2026-04-22,KVUE,short,88,no,0.2,Poor strategy win rate and missing key technical indicators make this unreliable.,1,no
+2026-04-22T15:11:40,2026-04-22,KEYS,long,80,no,0.2,"Poor strategy win rate, missing key technical indicators, and weak volume signal concern.",2,no
+2026-04-22T15:16:48,2026-04-22,KMB,short,85,no,0.2,Poor strategy win rate and missing critical technical indicators raise significant concerns.,1,no
+2026-04-22T15:16:52,2026-04-22,AZO,long,80,no,0.2,"Missing critical technical indicators, below VWAP, poor strategy win rate outweighs positive signals.",2,no
+2026-04-22T15:16:55,2026-04-22,IR,short,80,no,0.2,Strategy has poor 22% win rate and missing critical technical indicators.,3,no
+2026-04-22T15:16:59,2026-04-22,KIM,short,80,no,0.2,Poor strategy win rate and missing technical indicators raise concerns despite bearish setup.,4,no
+2026-04-22T15:22:05,2026-04-22,KHC,short,95,no,0.2,Missing critical technical data and terrible 22% strategy win rate override signal strength.,1,no
+2026-04-22T15:22:07,2026-04-22,CHRW,long,80,no,0.2,Missing critical technical data and poor strategy win rate undermines signal reliability.,2,no
+2026-04-22T15:22:09,2026-04-22,LHX,short,80,no,0.2,Poor strategy win rate and missing critical technical indicators undermine signal reliability.,3,no
+2026-04-22T15:22:12,2026-04-22,LDOS,short,80,no,0.2,Poor strategy win rate and missing key technical indicators outweigh bearish signals.,4,no
+2026-04-22T15:22:16,2026-04-22,JCI,short,75,no,0.2,Missing key technical indicators and poor strategy win rate makes this unreliable.,5,no
+2026-04-22T15:27:25,2026-04-22,MLM,short,100,no,0.2,"Strategy has terrible 22% win rate, missing EMA/ADX data raises reliability concerns.",1,no
+2026-04-22T15:27:32,2026-04-22,MPC,long,80,no,0.2,"Poor strategy win rate, missing technical indicators, weak volume despite positive signals.",2,no
+2026-04-22T15:32:38,2026-04-22,EXPD,short,75,no,0.2,Poor strategy win rate and missing key technical indicators raise significant concerns.,1,no
+2026-04-22T15:34:25,2026-04-22,PFG,long,75,no,0.1,Missing critical technical data and bearish EMA alignment contradicts long signal.,1,no
+2026-04-22T15:39:36,2026-04-22,ALLE,long,88,no,0.2,Strategy has poor 30% win rate despite technical signals; missing EMA/ADX data concerning.,1,no
+2026-04-22T15:39:39,2026-04-22,MKC,short,88,no,0.2,Strategy shows poor 22% win rate despite technical alignment.,2,no
+2026-04-22T15:39:44,2026-04-22,LMT,short,80,no,0.2,Poor strategy win rate and missing key technical indicators undermine signal reliability.,3,no
+2026-04-22T15:39:49,2026-04-22,EW,short,75,no,0.2,Poor strategy win rate and missing key technical indicators make this high-risk.,4,no
+2026-04-22T15:45:00,2026-04-22,MET,short,100,no,0.2,Strategy has poor 22% win rate and missing critical technical indicators like ADX/MACD.,1,no
+2026-04-22T15:45:03,2026-04-22,MCD,short,88,no,0.2,Poor strategy win rate and missing key technical indicators raise significant concerns.,2,no
+2026-04-22T15:45:06,2026-04-22,MCHP,long,73,no,0.2,Poor strategy win rate and missing key technical indicators outweigh positives.,3,no
+2026-04-22T15:50:16,2026-04-22,MDLZ,short,95,no,0.2,Strategy has poor 22% win rate and missing critical technical indicators.,1,no
+2026-04-22T15:50:22,2026-04-22,TAP,short,93,no,0.2,Strategy has poor 22% win rate despite strong technical setup.,2,no
+2026-04-22T15:50:25,2026-04-22,CVS,short,93,no,0.2,Poor strategy win rate and missing key technical indicators outweigh bullish setup.,3,no
+2026-04-22T15:50:28,2026-04-22,CEG,short,80,no,0.2,Poor strategy win rate and missing critical technical indicators undermine signal reliability.,4,no
+2026-04-22T15:50:30,2026-04-22,ICE,short,80,no,0.2,Missing critical technical indicators and terrible 22% win rate override decent setup.,5,no
+2026-04-22T15:50:34,2026-04-22,MSFT,long,80,no,0.2,Poor strategy win rate and conflicting EMA bearish trend outweigh positives.,6,no
+2026-04-22T15:55:41,2026-04-22,NI,short,100,no,0.2,Strategy has poor 22% win rate and missing key technical indicators,1,no
+2026-04-22T15:55:45,2026-04-22,NWSA,long,95,no,0.2,Poor strategy win rate and missing key technical indicators raise significant concerns.,2,no
+2026-04-22T15:55:48,2026-04-22,LVS,short,93,no,0.2,Poor strategy win rate and missing key technical indicators raise significant concerns.,3,no
+2026-04-22T15:55:51,2026-04-22,NEE,short,88,no,0.2,Strategy shows poor 22% win rate with incomplete technical data and missing R:R ratio.,4,no
+2026-04-22T15:55:54,2026-04-22,MSFT,long,80,no,0.2,Poor strategy performance and missing key technical indicators outweigh positive signals.,5,no
+2026-04-22T15:55:57,2026-04-22,FTV,long,75,no,0.2,"Poor strategy win rate, missing key technical data, price below VWAP suggests weakness.",6,no
+2026-04-22T15:55:59,2026-04-22,MNST,short,73,no,0.2,Missing key technical indicators and poor strategy win rate make this unreliable.,7,no
+2026-04-23T13:01:35,2026-04-23,ALGN,short,80,no,0.2,Poor strategy win rate and missing key technical indicators undermine signal reliability.,1,no
+2026-04-23T13:01:43,2026-04-23,AMCR,short,80,no,0.2,"Poor strategy win rate, missing key technical indicators, and extremely low volume",2,no
+2026-04-23T13:01:46,2026-04-23,APA,long,80,no,0.2,Poor strategy win rate and missing EMA/ADX data create too much uncertainty.,3,no
+2026-04-23T13:01:50,2026-04-23,ARES,short,80,no,0.2,Poor strategy win rate and missing key technical indicators raise concerns.,4,no
+2026-04-23T13:01:55,2026-04-23,ADSK,short,80,no,0.2,Strategy has poor 22% win rate and missing critical technical indicators.,5,no
+2026-04-23T13:01:58,2026-04-23,ARE,short,73,no,0.2,Poor strategy win rate and missing key technical indicators make this high-risk.,6,no
+2026-04-23T13:07:12,2026-04-23,ARE,short,95,no,0.2,Missing key technical indicators and poor strategy win rate outweigh bearish signals.,1,no
+2026-04-23T13:07:15,2026-04-23,ADBE,short,80,no,0.2,Poor strategy win rate and missing key technical indicators undermine signal reliability.,2,no
+2026-04-23T13:07:21,2026-04-23,AVY,short,80,no,0.2,Strategy shows terrible 22% win rate with missing technical indicators and low volume.,3,no
+2026-04-23T13:12:28,2026-04-23,AMD,long,100,no,0.2,Poor strategy win rate and missing key technical indicators make risk too high.,1,no
+2026-04-23T13:12:34,2026-04-23,AFL,long,80,no,0.2,"Poor strategy win rate, missing key indicators, and recent share resale filing creates uncertainty.",2,no
+2026-04-23T13:12:38,2026-04-23,BKR,long,73,no,0.2,"Poor strategy win rate, weak volume, missing key technical indicators raise concerns.",3,no
+2026-04-23T13:17:47,2026-04-23,ABT,short,100,no,0.2,"Perfect score with zero ATR/ADX data suspicious, terrible 22% win rate strategy",1,no
+2026-04-23T13:17:50,2026-04-23,BRO,short,80,no,0.2,Strategy has terrible 22% win rate with missing technical data and no R:R ratio.,2,no
+2026-04-23T13:17:56,2026-04-23,ADM,long,75,no,0.2,Missing critical technical indicators and poor strategy win rate outweigh positive volume signals.,3,no
+2026-04-23T13:17:58,2026-04-23,BKNG,short,75,no,0.2,Poor strategy win rate and missing key technical indicators raise significant concerns.,4,no
+2026-04-23T13:23:12,2026-04-23,CCL,short,85,no,0.2,Strategy has poor 22% win rate and missing key technical indicators,1,no
+2026-04-23T13:23:15,2026-04-23,CDNS,short,73,no,0.2,Strategy has poor 22% win rate and missing critical technical indicators.,2,no
+2026-04-23T13:28:22,2026-04-23,BAX,short,80,no,0.2,Missing key technical indicators and poor strategy win rate undermines signal reliability.,1,no
+2026-04-23T13:38:37,2026-04-23,BG,long,75,no,0.2,Missing key technical indicators and poor strategy win rate outweigh positive signals.,1,no
+2026-04-23T13:43:46,2026-04-23,ABBV,short,80,no,0.2,Poor strategy win rate and missing key technical indicators raise significant concerns.,1,no
+2026-04-23T13:49:00,2026-04-23,AEP,long,80,no,0.2,"Missing critical technical data, poor strategy win rate, weak volume signals high risk.",1,no
+2026-04-23T13:49:06,2026-04-23,CAH,short,80,no,0.2,Poor strategy win rate and missing key technical indicators raise significant concerns.,2,no
+2026-04-23T14:04:21,2026-04-23,BBY,short,80,no,0.2,Poor strategy win rate and missing key technical indicators raise significant concerns.,1,no
+2026-04-23T14:09:30,2026-04-23,SCHW,short,85,no,0.2,Poor strategy win rate and missing key technical indicators raise significant concerns.,1,no
+2026-04-23T14:09:33,2026-04-23,CMG,short,85,no,0.2,Strategy has terrible 22% win rate and missing critical technical indicators.,2,no
+2026-04-23T14:09:36,2026-04-23,CRL,short,81,no,0.2,Poor strategy win rate and missing key technical indicators raise concerns.,3,no
+2026-04-23T14:09:38,2026-04-23,BA,long,75,no,0.2,Poor strategy win rate and missing key technical indicators outweigh positive signals.,4,no
+2026-04-23T14:14:49,2026-04-23,C,short,88,no,0.2,Poor strategy win rate and missing key technical indicators raise significant concerns.,1,no
+2026-04-23T14:19:54,2026-04-23,BIIB,short,90,no,0.2,Poor strategy win rate and missing key technical indicators raise significant concerns.,1,no
+2026-04-23T14:19:56,2026-04-23,CTSH,short,80,no,0.2,Poor strategy win rate and missing key technical indicators raise significant concerns.,2,no
+2026-04-23T14:40:17,2026-04-23,CAT,long,80,no,0.2,Poor strategy win rate and missing critical technical indicators make risk too high.,1,no
+2026-04-23T14:45:25,2026-04-23,AWK,long,80,no,0.2,"Strategy has poor 30% win rate, missing key technical indicators, weak volume",1,no
+2026-04-23T14:55:35,2026-04-23,CLX,short,95,no,0.2,Poor strategy win rate and missing critical technical indicators undermine high signal score.,1,no
+2026-04-23T14:55:38,2026-04-23,AZO,long,80,no,0.2,"Missing key technical indicators, poor strategy win rate, and weak volume signal",2,no
+2026-04-23T15:05:51,2026-04-23,ATO,long,80,no,0.2,Poor strategy win rate and overbought RSI outweigh positive momentum signals.,1,no
+2026-04-23T15:05:54,2026-04-23,COP,long,80,no,0.2,Poor strategy win rate and missing technical indicators outweigh positive VWAP position.,2,no
+2026-04-23T15:05:58,2026-04-23,CMS,short,75,no,0.2,"Strategy has poor 22% win rate, missing key technical indicators, weak signal strength.",3,no
+2026-04-23T15:11:08,2026-04-23,COO,short,80,no,0.2,Poor strategy win rate and missing key technical indicators undermine signal reliability.,1,no
+2026-04-23T15:11:11,2026-04-23,STZ,long,80,no,0.2,"Poor strategy win rate, missing key technical indicators, and weak volume undermine signal quality.",2,no
+2026-04-23T15:11:13,2026-04-23,CARR,short,75,no,0.2,Poor strategy win rate and missing key technical indicators make risk too high.,3,no
+2026-04-23T15:11:16,2026-04-23,CAG,short,73,no,0.2,Poor strategy win rate 22% and missing key technical indicators raise concerns.,4,no
+2026-04-23T15:16:28,2026-04-23,COST,long,80,no,0.2,Poor strategy win rate and missing key technical indicators outweigh positive signals.,1,no
+2026-04-23T15:16:31,2026-04-23,CTRA,long,80,no,0.2,Poor strategy win rate and missing key technical indicators raise serious concerns.,2,no
+2026-04-23T15:21:40,2026-04-23,KO,long,80,no,0.2,"Poor strategy win rate, missing key technicals, weak volume contradict bullish signal.",1,no
+2026-04-23T15:21:43,2026-04-23,CRH,short,80,no,0.2,Strategy has poor 22% win rate and missing critical technical indicators.,2,no
+2026-04-23T15:26:51,2026-04-23,COF,short,95,no,0.2,Poor strategy win rate and missing critical technical indicators undermine signal reliability.,1,no
+2026-04-23T15:26:54,2026-04-23,CMCSA,long,88,no,0.2,Missing critical trend data and poor strategy history outweigh positive signals.,2,no
+2026-04-23T15:26:57,2026-04-23,ED,long,88,no,0.2,Missing key technical indicators and poor 30% win rate outweigh positive signals.,3,no
+2026-04-23T15:27:00,2026-04-23,AEE,long,80,no,0.2,Strategy has poor 30% win rate with missing EMA/ADX data and weak volume.,4,no
+2026-04-23T15:27:04,2026-04-23,CTVA,short,73,no,0.2,Poor strategy win rate and missing key technical indicators raise significant concerns.,5,no
+2026-04-23T15:32:11,2026-04-23,CEG,long,80,no,0.2,"Poor strategy win rate, missing key indicators, weak volume despite decent setup.",1,no
+2026-04-23T15:32:14,2026-04-23,DAL,short,80,no,0.2,Poor strategy win rate and missing key technical indicators make this unreliable.,2,no
+2026-04-23T15:32:17,2026-04-23,DPZ,long,80,no,0.2,"Poor strategy win rate, missing technical indicators, and bearish EMA alignment discourage entry.",3,no
+2026-04-23T15:32:21,2026-04-23,FANG,long,80,no,0.2,Missing key technical indicators and poor strategy win rate override positive signals.,4,no
+2026-04-23T15:32:23,2026-04-23,CVS,long,73,no,0.2,High RSI at 74.6 indicates overbought conditions despite breakout signal.,5,no
+2026-04-23T15:32:24,2026-04-23,CEG,long,80,no,0.2,"Poor strategy win rate, missing key indicators, weak volume despite decent setup.",1,yes
+2026-04-23T15:32:24,2026-04-23,DAL,short,80,no,0.2,Poor strategy win rate and missing key technical indicators make this unreliable.,2,yes
+2026-04-23T15:34:00,2026-04-23,ADI,long,88,no,0.1,"Critical technical indicators missing, bearish EMA alignment contradicts long signal direction.",1,no
+2026-04-23T15:34:04,2026-04-23,ELV,long,88,no,0.1,"Missing critical technical data (RSI, VWAP, EMAs all zero) makes analysis impossible.",2,no
+2026-04-23T15:34:07,2026-04-23,TXN,long,88,no,0.1,"Missing critical technical data (RSI, VWAP, EMAs all zero) prevents proper evaluation.",3,no
+2026-04-23T15:34:12,2026-04-23,UNP,long,88,no,0.1,Missing critical technical data and conflicting bearish EMA trend contradicts long signal.,4,no
+2026-04-23T15:34:15,2026-04-23,EG,long,75,no,0.1,"Critical data missing: RSI, ADX, VWAP, EMAs all zero, no R:R ratio provided",5,no
+2026-04-23T15:34:18,2026-04-23,STX,long,75,no,0.1,"Missing critical technical data (RSI, VWAP, EMAs all zero) makes signal unreliable.",6,no
+2026-04-23T15:34:20,2026-04-23,WDC,long,75,no,0.1,Missing critical technical data and bearish EMA alignment contradicts long signal.,7,no
+2026-04-23T15:39:26,2026-04-23,DTE,long,95,no,0.2,Poor strategy win rate and broken EMA data undermines high signal score reliability.,1,no
+2026-04-23T15:39:29,2026-04-23,DVA,long,85,no,0.2,"High RSI, poor strategy history, missing key technical indicators raise concerns.",2,no
+2026-04-23T15:39:32,2026-04-23,CPT,short,75,no,0.2,Strategy has terrible 22% win rate and missing critical technical indicators.,3,no
+2026-04-23T15:39:35,2026-04-23,CRWD,long,75,no,0.2,Price below VWAP with missing EMA/ADX data and poor strategy win rate.,4,no
+2026-04-23T15:44:41,2026-04-23,BAC,short,95,no,0.2,Poor strategy win rate and missing key technical indicators undermine high signal score.,1,no
+2026-04-23T15:44:45,2026-04-23,EQT,long,80,no,0.2,"Poor strategy win rate, weak volume, missing key technical indicators signal high risk.",2,no
+2026-04-23T15:44:48,2026-04-23,EFX,short,80,no,0.2,Poor strategy win rate and missing key technical indicators raise significant concerns.,3,no
+2026-04-23T15:44:49,2026-04-23,EFX,short,80,no,0.2,Poor strategy win rate and missing key technical indicators raise significant concerns.,3,yes
+2026-04-23T15:49:54,2026-04-23,DECK,short,80,no,0.2,Strategy shows poor 22% win rate with missing technical indicators and zero R:R ratio.,1,no
+2026-04-23T15:49:57,2026-04-23,DOV,long,75,no,0.2,Missing key technical indicators with poor strategy history negates positive signals.,2,no
+2026-04-23T15:50:00,2026-04-23,DD,short,75,no,0.2,Missing critical technical data and poor strategy win rate make this unreliable.,3,no
+2026-04-23T15:50:08,2026-04-23,EQIX,long,75,no,0.2,Poor strategy win rate and missing critical technical indicators make this high-risk.,4,no
+2026-04-23T15:50:12,2026-04-23,EMR,short,75,no,0.2,Poor strategy win rate and missing key technical indicators make this unreliable.,5,no
+2026-04-23T15:50:17,2026-04-23,EL,short,75,no,0.2,Strategy has poor 22% win rate and missing key technical indicators.,6,no
+2026-04-23T15:55:27,2026-04-23,ETN,long,95,no,0.2,Poor strategy win rate and missing EMA/ADX data create unreliable signal despite positive factors.,1,no
+2026-04-23T15:55:30,2026-04-23,EXC,long,88,no,0.2,Missing critical technical data and poor strategy win rate make this unreliable.,2,no
+2026-04-23T15:55:33,2026-04-23,AVB,short,80,no,0.2,Missing critical trend indicators and poor strategy win rate outweigh modest technical signals.,3,no
+2026-04-23T15:55:36,2026-04-23,EVRG,long,80,no,0.2,Poor strategy win rate and missing critical technical indicators make this unreliable.,4,no
+2026-04-23T15:55:38,2026-04-23,ES,long,80,no,0.2,Poor strategy win rate and missing key technical indicators make this unreliable.,5,no
+2026-04-23T15:55:41,2026-04-23,DHR,short,75,no,0.2,Poor strategy win rate and missing key technical indicators make this unreliable.,6,no
+2026-04-23T15:55:47,2026-04-23,CDW,short,75,no,0.2,Missing critical technical indicators and poor strategy win rate makes this unreliable.,7,no
+2026-04-23T15:55:49,2026-04-23,CSCO,long,75,no,0.2,"Poor strategy winrate, bearish EMA trend, below VWAP, recent downgrade outweigh bullish signals.",8,no
+2026-04-23T15:55:52,2026-04-23,EL,short,75,no,0.2,Strategy has poor 22% win rate and missing key technical indicators,9,no
+2026-04-23T15:55:54,2026-04-23,EOG,long,75,no,0.2,Poor strategy win rate and missing key technical indicators make risk too high.,10,no
+2026-04-24T13:04:43,2026-04-24,ADI,long,100,no,0.2,"Perfect score suspicious, missing key technical data, poor strategy win rate",1,no
+2026-04-24T13:04:46,2026-04-24,APTV,short,95,no,0.2,Strategy has poor 22% win rate and missing critical technical indicators like ADX/MACD.,2,no
+2026-04-24T13:04:49,2026-04-24,AMCR,short,80,no,0.2,Strategy shows poor 22% win rate with missing technical indicators and weak volume.,3,no
+2026-04-24T13:04:52,2026-04-24,ABBV,short,80,no,0.2,Poor strategy win rate and incomplete technical data raise significant concerns.,4,no
+2026-04-24T13:04:55,2026-04-24,AXP,short,80,no,0.2,Poor strategy win rate and missing key technical indicators undermine signal reliability.,5,no
+2026-04-24T13:04:58,2026-04-24,AMAT,long,80,no,0.2,Poor strategy win rate and missing key technical indicators undermine signal reliability.,6,no
+2026-04-24T13:05:02,2026-04-24,AIZ,long,80,no,0.2,"Poor strategy win rate, weak volume, missing key technical indicators discourage entry.",7,no
+2026-04-24T13:05:05,2026-04-24,ADP,short,80,no,0.2,Poor strategy win rate and missing key technical indicators outweigh signal strength.,8,no
+2026-04-24T13:10:23,2026-04-24,BAC,short,100,no,0.2,Strategy has poor 22% win rate and missing critical technical indicators.,1,no
+2026-04-24T13:10:33,2026-04-24,AMAT,long,80,no,0.2,Poor strategy win rate and missing key technical indicators outweigh bullish signals.,2,no
+2026-04-24T13:10:36,2026-04-24,AIZ,long,80,no,0.2,Poor strategy win rate and missing key technical data undermines signal reliability.,3,no
+2026-04-24T13:10:40,2026-04-24,AZO,short,80,no,0.2,Poor strategy win rate and missing key technical indicators raise serious concerns.,4,no
+2026-04-24T13:10:42,2026-04-24,BALL,short,80,no,0.2,Poor strategy win rate and weak volume override technical alignment.,5,no
+2026-04-24T13:10:45,2026-04-24,BAX,short,73,no,0.2,"Strategy has poor 22% win rate, missing key indicators, weak volume concerning.",6,no
+2026-04-24T13:15:57,2026-04-24,AJG,short,80,no,0.2,"Poor strategy win rate, missing key technical indicators, weak volume makes risk too high.",1,no
+2026-04-24T13:16:01,2026-04-24,BG,short,80,no,0.2,Poor strategy win rate and missing critical technical indicators undermine signal reliability.,2,no
+2026-04-24T13:16:05,2026-04-24,CDNS,long,80,no,0.3,Missing critical technical data and poor strategy win rate override positive signals.,3,no
+2026-04-24T13:16:08,2026-04-24,BLDR,short,75,no,0.2,"Poor strategy win rate, missing key indicators, weak volume concerns outweigh technical setup.",4,no
+2026-04-24T13:16:11,2026-04-24,BAX,short,73,no,0.2,Poor strategy win rate and missing key technical indicators raise significant concerns.,5,no
+2026-04-24T13:21:22,2026-04-24,CHTR,short,88,no,0.2,Poor strategy win rate and missing key technical indicators make risk too high.,1,no
+2026-04-24T13:21:26,2026-04-24,CDW,short,88,no,0.2,Strategy shows poor 22% win rate despite technical alignment and breakdown pattern.,2,no
+2026-04-24T13:21:29,2026-04-24,ABNB,short,80,no,0.2,Strategy has poor 22% win rate despite decent technicals and signal components.,3,no
+2026-04-24T13:21:33,2026-04-24,AWK,long,80,no,0.2,"Missing critical EMA/ADX data, poor strategy win rate, insufficient technical confirmation.",4,no
+2026-04-24T13:21:35,2026-04-24,CARR,short,80,no,0.2,Poor strategy win rate and missing key technical indicators outweigh bearish signals.,5,no
+2026-04-24T13:26:47,2026-04-24,CINF,short,75,no,0.2,Poor strategy win rate and missing key technical indicators raise concerns.,1,no
+2026-04-24T13:26:49,2026-04-24,CVX,short,73,no,0.2,Strategy has poor 22% win rate and missing key technical indicators,2,no
+2026-04-24T13:32:00,2026-04-24,T,short,80,no,0.2,Strategy shows poor 22% win rate with missing technical indicators and price above VWAP.,1,no
+2026-04-24T13:32:05,2026-04-24,BK,short,80,no,0.2,Poor strategy win rate and missing key technical indicators make this high-risk trade.,2,no
+2026-04-24T13:32:08,2026-04-24,CLX,short,80,no,0.2,Poor strategy win rate and missing technical indicators outweigh decent signal score.,3,no
+2026-04-24T13:32:12,2026-04-24,CFG,short,80,no,0.2,Poor strategy win rate and missing key technical indicators raise significant concerns.,4,no
+2026-04-24T13:37:25,2026-04-24,AMP,long,95,no,0.2,Poor strategy win rate and missing key technical indicators outweigh positive signals.,1,no
+2026-04-24T13:37:29,2026-04-24,CTSH,short,95,no,0.2,Strategy has poor 22% win rate and missing critical technical indicators.,2,no
+2026-04-24T13:42:38,2026-04-24,CEG,long,80,no,0.2,Missing key technical indicators and poor strategy win rate override positive signals.,1,no
+2026-04-24T13:47:45,2026-04-24,ADP,short,80,no,0.2,Poor strategy win rate and missing key technical indicators raise significant concerns.,1,no
+2026-04-24T13:47:48,2026-04-24,AVY,short,80,no,0.2,"Strategy has poor 22% win rate, missing key technical indicators, weak volume.",2,no
+2026-04-24T13:47:51,2026-04-24,GLW,long,80,no,0.2,Poor strategy win rate and bearish EMA alignment override bullish technicals,3,no
+2026-04-24T13:47:53,2026-04-24,CMG,short,75,no,0.2,Poor strategy win rate and missing key technical indicators raise significant concerns.,4,no
+2026-04-24T13:53:07,2026-04-24,CSGP,short,100,no,0.2,Poor strategy win rate and missing key technical indicators raise significant concerns.,1,no
+2026-04-24T13:58:14,2026-04-24,ADM,short,80,no,0.2,Poor strategy win rate and missing key technical indicators undermine signal reliability.,1,no
+2026-04-24T13:58:19,2026-04-24,APD,long,75,no,0.2,Poor strategy win rate and missing critical technical indicators undermines signal reliability.,2,no
+2026-04-24T14:08:31,2026-04-24,CF,short,100,no,0.2,Missing key technical indicators and poor strategy win rate undermines signal reliability.,1,no
+2026-04-24T14:08:33,2026-04-24,CRL,short,80,no,0.2,Poor strategy win rate and missing key technical indicators make risk too high.,2,no
+2026-04-24T14:13:43,2026-04-24,DLR,short,95,no,0.2,"Missing key technical data, poor strategy history, bullish analyst targets contradict short thesis.",1,no
+2026-04-24T14:13:46,2026-04-24,COIN,long,80,no,0.2,"Poor strategy win rate, bearish EMA trend, below VWAP, and recent negative regulatory news.",2,no
+2026-04-24T14:13:49,2026-04-24,EBAY,short,80,no,0.2,Poor strategy win rate and missing critical technical indicators make this unreliable.,3,no
+2026-04-24T14:13:52,2026-04-24,CNP,short,75,no,0.2,Poor strategy win rate and missing key technical indicators undermine signal reliability.,4,no
+2026-04-24T14:19:03,2026-04-24,SATS,short,80,no,0.2,Poor strategy win rate and missing technical indicators outweigh modest bearish signals.,1,no
+2026-04-24T14:19:07,2026-04-24,EW,long,80,no,0.2,Poor strategy win rate and missing key technical indicators outweigh positive news.,2,no
+2026-04-24T14:19:11,2026-04-24,EMR,short,80,no,0.2,Poor strategy win rate and missing key technical indicators make this unreliable.,3,no
+2026-04-24T14:29:23,2026-04-24,EL,long,75,no,0.2,Missing key technical indicators and poor strategy win rate outweigh positive signals.,1,no
+2026-04-24T14:34:31,2026-04-24,DXCM,short,75,no,0.2,Strategy has poor 22% win rate and missing critical technical indicators.,1,no
+2026-04-24T14:44:40,2026-04-24,DTE,long,75,no,0.2,Poor strategy performance and missing technical indicators outweigh positive volume surge.,1,no
+2026-04-24T14:49:46,2026-04-24,EXE,long,93,no,0.2,Poor strategy win rate and missing technical indicators raise significant risk concerns.,1,no
+2026-04-24T14:59:57,2026-04-24,ELV,long,75,no,0.2,"Missing key technical indicators, poor strategy performance, insufficient conviction despite positive signals.",1,no
+2026-04-24T15:05:04,2026-04-24,ALLE,long,80,no,0.2,Poor strategy win rate and missing key technical indicators raise significant concerns.,1,no
+2026-04-24T15:05:07,2026-04-24,BA,long,80,no,0.2,Missing critical EMA and momentum data with poor strategy history negates positive signals.,2,no
+2026-04-24T15:05:10,2026-04-24,COO,short,75,no,0.2,Strategy has poor 22% win rate and missing critical technical indicators.,3,no
+2026-04-24T15:10:20,2026-04-24,ES,long,80,no,0.2,"Poor strategy history, missing EMA/ADX data, weak volume, and insufficient risk-reward ratio.",1,no
+2026-04-24T15:10:24,2026-04-24,EQIX,short,75,no,0.2,"Poor strategy win rate, missing key technical indicators, and extremely low volume signal weakness.",2,no
+2026-04-24T15:15:30,2026-04-24,FSLR,long,80,no,0.2,"Strategy shows poor 30% win rate, missing key technical indicators, weak volume",1,no
+2026-04-24T15:20:38,2026-04-24,FIX,long,88,no,0.2,Poor strategy win rate and missing critical technical indicators undermine signal reliability.,1,no
+2026-04-24T15:20:41,2026-04-24,CSX,long,88,no,0.2,Poor strategy win rate and missing key technical indicators suggest weak signal quality.,2,no
+2026-04-24T15:20:44,2026-04-24,GRMN,short,88,no,0.2,Strategy shows poor 22% win rate with missing technical indicators and no R:R ratio.,3,no
+2026-04-24T15:20:46,2026-04-24,MO,long,80,no,0.2,Poor strategy win rate and missing technical indicators outweigh positive volume signal.,4,no
+2026-04-24T15:25:53,2026-04-24,GIS,short,93,no,0.2,Strategy has poor 22% win rate and missing key technical indicators.,1,no
+2026-04-24T15:25:57,2026-04-24,ED,long,80,no,0.2,Poor strategy win rate and missing EMA/ADX data create unreliable signal quality.,2,no
+2026-04-24T15:26:01,2026-04-24,DAL,short,80,no,0.2,"Missing key technical indicators, poor strategy history, and rising fuel costs create uncertainty.",3,no
+2026-04-24T15:26:06,2026-04-24,BEN,short,80,no,0.2,Poor strategy win rate and incomplete technical data outweigh bearish signals.,4,no
+2026-04-24T15:26:10,2026-04-24,GEHC,short,80,no,0.2,"Poor strategy win rate, missing key technical indicators, weak volume signal",5,no
+2026-04-24T15:26:13,2026-04-24,D,long,75,no,0.2,Missing critical EMA and momentum data with poor strategy win rate undermines signal reliability.,6,no
+2026-04-24T15:31:21,2026-04-24,AEP,long,95,no,0.2,Missing critical EMA and ADX data with poor 30% strategy win rate,1,no
+2026-04-24T15:31:23,2026-04-24,D,long,88,no,0.2,Poor strategy win rate and missing key technical indicators outweigh positive signals.,2,no
+2026-04-24T15:31:26,2026-04-24,EXC,long,88,no,0.2,Missing critical technical indicators and poor strategy win rate negate positive signals.,3,no
+2026-04-24T15:31:29,2026-04-24,FDX,short,88,no,0.2,Poor strategy win rate and missing critical technical indicators raise significant concerns.,4,no
+2026-04-24T15:31:32,2026-04-24,HD,short,88,no,0.2,Poor strategy win rate and missing key technical indicators outweigh signal score.,5,no
+2026-04-24T15:31:38,2026-04-24,HIG,short,80,no,0.2,Missing key technical indicators and poor strategy history outweigh oversold conditions.,6,no
+2026-04-24T15:31:42,2026-04-24,GPC,short,73,no,0.2,Poor strategy win rate and missing key technical indicators make risk too high.,7,no
+2026-04-24T15:33:18,2026-04-24,SNPS,long,88,no,0.1,"Critical technical data missing, bearish EMA alignment contradicts long signal direction.",1,no
+2026-04-24T15:33:22,2026-04-24,GOOGL,long,75,no,0.2,Missing critical technical data with bearish EMA alignment contradicts bullish signal direction.,2,no
+2026-04-24T15:33:24,2026-04-24,GOOG,long,75,no,0.1,Missing critical technical data and bearish EMA alignment contradicts long signal.,3,no
+2026-04-24T15:33:27,2026-04-24,NTAP,long,75,no,0.1,"Missing critical data: RSI, ADX, VWAP, EMAs all zero with bearish trend alignment.",4,no
+2026-04-24T15:33:30,2026-04-24,IRM,long,70,no,0.1,Missing critical technical data makes signal unreliable despite bullish harami pattern.,5,no
+2026-04-24T15:38:36,2026-04-24,HST,short,100,no,0.2,Strategy has poor 22% win rate and missing critical technical indicators,1,no
+2026-04-24T15:38:40,2026-04-24,HUBB,long,88,no,0.2,Missing critical EMA/ADX/MACD data with poor strategy win rate raises concerns.,2,no
+2026-04-24T15:38:43,2026-04-24,FDS,short,80,no,0.2,Missing critical technical indicators and poor 22% strategy win rate outweigh positives.,3,no
+2026-04-24T15:38:46,2026-04-24,GPC,short,80,no,0.2,Poor strategy win rate and missing key technical indicators raise concerns.,4,no
+2026-04-24T15:38:52,2026-04-24,HIG,short,80,no,0.2,Poor strategy win rate and missing key technical indicators outweigh bearish signals.,5,no
+2026-04-24T15:38:54,2026-04-24,APA,long,75,no,0.2,"Poor strategy win rate, missing key indicators, price below VWAP signals weakness.",6,no
+2026-04-24T15:38:56,2026-04-24,EME,long,75,no,0.2,"Missing key technical indicators, poor strategy win rate, minimal supporting data.",7,no
+2026-04-24T15:38:59,2026-04-24,HSIC,short,73,no,0.2,"Poor strategy win rate, missing key technical indicators, and conflicting price target signal.",8,no
+2026-04-24T15:44:07,2026-04-24,HII,short,100,no,0.2,Strategy has poor 22% win rate and missing key technical indicators,1,no
+2026-04-24T15:44:12,2026-04-24,HUM,short,73,no,0.2,Poor strategy win rate and missing key technical indicators undermine signal reliability.,2,no
+2026-04-24T15:49:18,2026-04-24,FIS,short,80,no,0.2,Poor strategy win rate and missing critical technical indicators undermines signal confidence.,1,no
+2026-04-24T15:49:22,2026-04-24,GPN,short,80,no,0.2,Poor strategy win rate and missing key technical indicators outweigh positive signals.,2,no
+2026-04-24T15:49:24,2026-04-24,HSIC,short,80,no,0.2,"Strategy has poor 22% win rate, missing key technical indicators, inadequate risk-reward setup.",3,no
+2026-04-24T15:49:28,2026-04-24,HON,short,75,no,0.2,"Missing critical technical indicators, poor strategy win rate, bullish analyst sentiment conflicts.",4,no
+2026-04-24T15:49:31,2026-04-24,PODD,short,75,no,0.2,Poor strategy win rate and missing key technical indicators make this unreliable.,5,no
+2026-04-24T15:49:33,2026-04-24,F,short,73,no,0.2,Poor strategy performance at 22% win rate outweighs technical setup strength.,6,no
+2026-04-24T15:54:41,2026-04-24,IRM,short,100,no,0.2,Poor strategy win rate and missing key technical indicators raise significant concerns.,1,no
+2026-04-24T15:54:44,2026-04-24,IP,short,88,no,0.2,Poor strategy win rate and missing key technical indicators outweigh decent setup.,2,no
+2026-04-24T15:54:46,2026-04-24,KDP,long,88,no,0.2,Strategy shows poor 30% win rate despite positive technicals and news.,3,no
+2026-04-24T15:54:49,2026-04-24,J,short,80,no,0.2,Poor strategy win rate and recent losses outweigh technical setup strength.,4,no
+2026-04-24T15:54:53,2026-04-24,F,short,75,no,0.2,Poor strategy win rate and missing key technical indicators make this unreliable.,5,no
+2026-04-24T16:00:02,2026-04-24,EME,long,100,no,0.2,Poor strategy win rate and missing key technical indicators raise significant concerns.,1,no
+2026-04-24T16:00:07,2026-04-24,LH,short,88,no,0.2,Strategy shows poor 22% win rate despite decent technicals and missing key indicators.,2,no
+2026-04-24T16:00:10,2026-04-24,IFF,short,80,no,0.2,Strategy shows poor 22% win rate with missing technical indicators undermining signal reliability.,3,no
+2026-04-24T16:00:12,2026-04-24,JBL,long,80,no,0.2,Missing critical technical data and poor strategy win rate outweigh positive signals.,4,no
+2026-04-24T16:00:14,2026-04-24,DVA,long,75,no,0.2,"Poor strategy win rate, missing key technical indicators, price below VWAP signals weakness.",5,no
+2026-04-24T16:00:17,2026-04-24,KR,short,75,no,0.2,Poor strategy win rate and missing key technical indicators raise concerns.,6,no
